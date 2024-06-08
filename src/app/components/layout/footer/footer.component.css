@@ -1,0 +1,165 @@
+/*pie de pagina footer*/
+.testimonios {
+    background-color: black;
+    gap: 1rem;
+    color: white;
+  }
+
+  img.imglogo1 {
+    margin-top: -6.2rem;
+    margin-left: 1rem;
+    width: 4.1rem;
+    margin-right: -7rem;
+  }
+
+  img.img-testimonio {
+    width: 3em;
+  }
+  
+  h2.testimonios__title {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+  }
+  
+  .testimonios__title {
+    margin-left: .9rem;
+    margin-top: 0rem;
+    padding-top: 15px;
+  }
+  .testimonio {
+    border: 1px solid;
+    flex-basis: 33%;
+    margin: 1rem;
+    padding: 0.9rem;
+  }
+  .user {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+  }
+  .testimonio strong {
+    font-size: 1em;
+  }
+  .testimonio blockquote {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .starscolor {
+    color: yellow;
+    margin-top: .8rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  h4 {
+    margin-top: 1rem;
+    margin-left: 6rem;
+  }
+  p {
+    margin-left: 2rem;
+  }
+  
+  .tituloredes {
+    margin-right: 3px;
+  }
+  .contacto {
+    font-size: 1.1em;
+    margin: 1.2rem;
+    margin-left: -0.8rem;
+    margin-top: 0.9rem;
+  }
+  ul.footer-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items:center;
+  }
+  .footer-menu {
+    display: flex;
+  
+    flex-direction: column;
+  }
+  
+  h3.tituloredes {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+  }
+  
+  li.menu-social-item{
+    gap: 4rem;
+    display: flex;
+    margin-right: 1.1rem;
+  }
+  .siguenos {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1em;
+  }
+  .menu-social-icons {
+    gap: 2rem;
+  }
+
+  .iconnos {
+    font-size: 2em;
+  } 
+  
+  .list-testimonios {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  p.titulo-footer {
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  
+  @media ( max-width: 576px ) {
+  
+  
+  
+    .testimonio {
+      margin: 1.9em;
+    }
+  
+    .nav {
+      display: flex;
+      justify-content: center;
+  }
+  
+    .contacto {
+    margin-bottom: 4em;}
+  
+    ul.footer-menu {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6em;
+  }
+  
+  }
+  
+  @media ( min-width: 768px ) {
+      .list-testimonios {
+          flex-direction: row;
+      } 
+  }
+  @media (min-width: 801px ) {
+      .ul.footer-menu {
+          align-items:end;
+      }
+  }

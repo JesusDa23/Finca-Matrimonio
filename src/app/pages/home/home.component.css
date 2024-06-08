@@ -1,0 +1,36 @@
+.img-main {
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url( /assets/imagenes/fondohome.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        padding: 100px 0 
+}
+
+.titulo-main p {
+    font-size: 3em;
+    color: #ffffff;
+    font-weight: 1000;
+    padding: 40px 100px;
+}
+
+.main-horario {
+    background-color: #f7e5d2;
+}
+
+p.horario-servicio {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+button.btn.btn-primary {
+    font-size: 20px;
+    margin: 0 100px;
+    border: 3px solid #ffffff;
+    background-color: transparent;
+}
