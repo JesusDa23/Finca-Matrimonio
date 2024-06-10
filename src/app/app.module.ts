@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegistroComponent } from './pages/registro/registro.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarrucelComponent } from './pages/home/carrucel/carrucel.component';
+import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
-    RegistroComponent,
-    ProductDetailsComponent
+    CarrucelComponent,
+    MatrimoniosComponent
   ],
   imports: [
     BrowserModule,
