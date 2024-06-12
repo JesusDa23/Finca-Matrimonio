@@ -1,0 +1,32 @@
+.cardService {
+    display: flex;
+    justify-content:center;
+    margin: 1em;
+    gap: 3em;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img.card-img-top {
+    height: 17rem;
+    object-fit: cover;
+}
+
+h5.card-title {
+    display: flex;
+    justify-content: center;
+}
+
+p.card-text {
+    height: 7rem;
+}
+
+a.btn.btn-primary {
+    display: flex;
+    width: 62%;
+    justify-content: center;
+}

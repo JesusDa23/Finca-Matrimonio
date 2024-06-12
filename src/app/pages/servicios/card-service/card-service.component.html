@@ -1,0 +1,14 @@
+<div class="cardService">
+  @for (service of services; track service) {
+  <div class="card" style="width: 22rem">
+    <img [src]="service.img" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{service.title}}</h5>
+      <p class="card-text">
+        {{service.description}}
+      </p>
+      <a href="#" class="btn btn-primary">{{service.btnText}}</a>
+    </div>
+  </div>
+  }
+</div>

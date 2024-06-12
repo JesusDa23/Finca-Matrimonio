@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarrucelComponent } from './pages/home/carrucel/carrucel.component';
 import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { CardServiceComponent } from './pages/servicios/card-service/card-service.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.compo
     FooterComponent,
     HomeComponent,
     CarrucelComponent,
-    MatrimoniosComponent
+    MatrimoniosComponent,
+    ServiciosComponent,
+    CardServiceComponent
   ],
   imports: [
     BrowserModule,
