@@ -1,0 +1,13 @@
+.form {
+    width: 40%;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+}
+
+.error {
+    color: red;
+    height: 1.4em;
+}

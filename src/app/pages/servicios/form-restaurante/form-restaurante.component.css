@@ -1,0 +1,68 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: .5em;
+    font-weight: bolder;
+}
+
+h3 {
+    font-weight: bolder;
+
+}
+
+.menu {
+    margin: 1em auto;
+    width: 90%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin: 1em;
+}
+
+.menuProducts {
+  width: 100px; /* Ajusta el ancho según tus necesidades */
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5rem;
+  object-fit: cover;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+a.btn.btn-primary {
+    margin-right: 1em;
+}
+
+.total-container {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .total-label {
+    font-size: 19px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .total-amount {
+    font-size: 19px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .ml-auto {
+    margin-left: auto; /* Empuja el contenido hacia la derecha */
+  }

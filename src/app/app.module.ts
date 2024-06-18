@@ -11,6 +11,8 @@ import { CarrucelComponent } from './pages/home/carrucel/carrucel.component';
 import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CardServiceComponent } from './pages/servicios/card-service/card-service.component';
+import { ListaMenuComponent } from './pages/servicios/form-restaurante/lista-menu/lista-menu.component';
+import { FormReservasComponent } from './pages/servicios/form-reservas/form-reservas.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CardServiceComponent } from './pages/servicios/card-service/card-servic
     CarrucelComponent,
     MatrimoniosComponent,
     ServiciosComponent,
-    CardServiceComponent
+    CardServiceComponent,
+    ListaMenuComponent,
+    FormReservasComponent
   ],
   imports: [
     BrowserModule,
