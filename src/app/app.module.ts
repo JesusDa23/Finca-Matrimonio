@@ -11,6 +11,9 @@ import { CarrucelComponent } from './pages/home/carrucel/carrucel.component';
 import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CardServiceComponent } from './pages/servicios/card-service/card-service.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { BannerComponent } from './pages/nosotros/banner/banner.component';
+import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { CardServiceComponent } from './pages/servicios/card-service/card-servic
     CarrucelComponent,
     MatrimoniosComponent,
     ServiciosComponent,
-    CardServiceComponent
+    CardServiceComponent,
+    NosotrosComponent,
+    BannerComponent,
+    ParagraphComponent
   ],
   imports: [
     BrowserModule,
