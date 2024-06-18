@@ -30,15 +30,31 @@ export class FormRestauranteComponent {
   }
 
 
-  incrementar(index:number) {
-    this.menu[index].cantidad++
-  }
-
-  decrementar(index: number){
-    if (this.menu[index].cantidad > 0) {
-      this.menu[index].cantidad--;
+  incrementar(index: number) {
+    if (index < this.platos.length) {
+        // Incrementar cantidad del plato
+        this.platos[index].cantidad++;
+    } else {
+        // Incrementar cantidad de la bebida
+        const bebidaIndex = index - this.platos.length;
+        this.bebidas[bebidaIndex].cantidad++;
     }
-  }
+}
+
+  decrementar(index: number) {
+    if (index < this.platos.length) {
+        // Decrementar cantidad del plato
+        if (this.platos[index].cantidad > 0) {
+            this.platos[index].cantidad--;
+        }
+    } else {
+        // Decrementar cantidad de la bebida
+        const bebidaIndex = index - this.platos.length;
+        if (this.bebidas[bebidaIndex].cantidad > 0) {
+            this.bebidas[bebidaIndex].cantidad--;
+        }
+    }
+}
 
 
   sumarPrecios() {
