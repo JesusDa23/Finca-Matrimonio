@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -92,10 +93,23 @@ export class FormRestauranteComponent {
 
     this.MenuService.guardarSeleccion(seleccion).subscribe(
       (response) => {
-        console.log('Datos guardados correctamente:', response);
+        Swal.fire({
+          icon: 'success',
+          title: '¡Reserva Exitosa!',
+          text: 'Su reserva ha sido guardada correctamente.',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Ok'
+        });
       },
       (error) => {
         console.error('Error al guardar los datos:', error);
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al guardar la reserva.',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'Cerrar'
+        });
       }
     );
   }

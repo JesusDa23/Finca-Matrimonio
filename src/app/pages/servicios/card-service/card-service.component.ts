@@ -34,7 +34,7 @@ export class CardServiceComponent {
 
   constructor(private insertarReservaService: InsertarReservaService) {}
 
-  selectService(id: number): void {
-    this.insertarReservaService.setSelectedServiceId(id);
+  recogerId(id: number): void {
+    this.insertarReservaService.idCard(id);
   }
 }

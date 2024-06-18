@@ -14,7 +14,6 @@ export class MainDataComponent {
   constructor(
     private formBuilder: FormBuilder,
     private reservaService: InsertarReservaService,
-    private cardService: CardServiceComponent,
     private router: Router
   ){}
 
@@ -41,7 +40,7 @@ export class MainDataComponent {
 
 
   mostrarOtroForm(): void {
-    const selectedServiceId = this.reservaService.getSelectedServiceId()
+    const selectedServiceId = this.reservaService.obtenerIdCard()
 
     if (selectedServiceId !== null) {
       switch (selectedServiceId) {

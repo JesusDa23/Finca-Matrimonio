@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
-import { FormReservasComponent } from './pages/servicios/form-reservas/form-reservas.component';
 import { MainDataComponent } from './pages/servicios/main-data/main-data.component';
 import { FormRestauranteComponent } from './pages/servicios/form-restaurante/form-restaurante.component';
 import { FormEventosComponent } from './pages/servicios/form-eventos/form-eventos.component';

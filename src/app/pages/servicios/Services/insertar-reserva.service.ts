@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class InsertarReservaService {
 
   baseUrl = 'http://localhost:4000/api';
-  private selectedServiceId: number | null = null;
+  private selectedServiceId: any;
 
   constructor(private http: HttpClient) { }
 
@@ -16,13 +16,12 @@ export class InsertarReservaService {
     return this.http.post<any>(`${this.baseUrl}/reservas`, nuevaReserva)
   }
 
-  setSelectedServiceId(id: number): void {
+  idCard(id: number): void {
     this.selectedServiceId = id;
   }
 
-  getSelectedServiceId(): number | null {
+  obtenerIdCard(): any {
     return this.selectedServiceId;
   }
-
 
 }

@@ -7,7 +7,7 @@
       <p class="card-text">
         {{service.description}} 
       </p>
-      <button (click)="selectService(service.id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">{{service.btnText}}</button>
+      <button (click)="recogerId(service.id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">{{service.btnText}}</button>
     </div>
     
   </div>
@@ -20,7 +20,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Datos Personales</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
