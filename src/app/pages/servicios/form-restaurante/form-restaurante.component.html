@@ -1,10 +1,56 @@
-<h2>Nuestro Menú</h2>
-
-
-
-
-
-
-
-   
-   
+<h2>Nuestro menu</h2>
+<div class="menu">
+    <h3>Platos</h3>
+    <table class="table">
+        <thead>
+          <tr >
+            <th scope="col">Cantidad</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plato of platos let i = index" >
+            <th scope="row">{{plato.cantidad}}</th>
+            <td scope="row">
+                <img class="menuProducts" [src]="plato.urlImage" alt=""></td>
+            <td scope="row">{{plato.name}}</td>
+            <td scope="row">{{plato.price}}</td>
+            <td scope="row">
+                <a type="button" class="btn btn-primary"(click)="incrementar(i)">+</a>
+                <a type="button" class="btn btn-primary" (click)="decrementar(i)">-</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    
+    <h3>Bebidas</h3>
+    <table class="table">
+        <thead>
+          <tr >
+            <th scope="col">Cantidad</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bebida of bebidas let i = index">
+            <th scope="row">{{bebida.cantidad}}</th>
+            <td scope="row">
+                <img class="menuProducts" [src]="bebida.urlImage" alt="">
+            </td>
+            <td scope="row">{{bebida.price}}</td>
+            <td scope="row">{{bebida.name}}</td>
+            <td scope="row">
+                <a type="button" class="btn btn-primary"(click)="incrementar(i)">+</a>
+                <a type="button" class="btn btn-primary" (click)="decrementar(i)">-</a>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    
+</div>

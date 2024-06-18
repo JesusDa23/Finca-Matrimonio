@@ -1,84 +1,70 @@
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Datos Personales</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="mainData" (ngSubmit)="enviarReserva()">
+<form [formGroup]="mainData" (ngSubmit)="enviarReserva()">
 
-                <div class="field">
-                    <label for="nombreCompleto">Nombre Completo:</label>
-                    <input type="text" id="nombreCompleto" class="form-control" formControlName="nombre">
-                    <div class="error">
-                        <div *ngIf="mainData.get('nombre')?.invalid && (mainData.get('nombre')?.dirty || mainData.get('nombre')?.touched)">
-                            <small *ngIf="mainData.get('nombre')?.errors?.['required']">el nombre es requerido</small>
-                            <small *ngIf="mainData.get('nombre')?.errors?.['minlength']">el campo requiere minimo 5 caracteres</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="identificacion">Identificación:</label>
-                    <input type="text" id="identificacion" class="form-control" formControlName="cedula">
-                    <div class="error">
-                        <div *ngIf="mainData.get('cedula')?.invalid && (mainData.get('cedula')?.dirty || mainData.get('cedula')?.touched)">
-                            <small *ngIf="mainData.get('cedula')?.errors?.['required']">el numero de documento es requerido</small>
-                        </div>
-                    </div>    
-                </div>
-                
-                <div class="field">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" class="form-control" formControlName="email">
-                    <div class="error">
-                        <div *ngIf="mainData.get('email')?.invalid && (mainData.get('email')?.dirty || mainData.get('email')?.touched)">
-                            <small *ngIf="mainData.get('email')?.errors?.['required']">el email es requerido</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="fechaReserva">Selecciona la fecha de tu reserva:</label>
-                    <input type="date" id="fechaReserva" class="form-control" formControlName="fechaReserva">
-                    <div class="error">
-                        <div *ngIf="mainData.get('fechaReserva')?.invalid && (mainData.get('fechaReserva')?.dirty || mainData.get('fechaReserva')?.touched)">
-                            <small *ngIf="mainData.get('fechaReserva')?.errors?.['required']">la fecha es requerida</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="horaLlegada">Indica tu hora estimada de llegada:</label>
-                    <input type="time" id="horaLlegada" class="form-control" formControlName="horaLLegada">
-                    <div class="error">
-                        <div  *ngIf="mainData.get('horaLLegada')?.invalid && (mainData.get('horaLLegada')?.dirty || mainData.get('horaLLegada')?.touched)">
-                            <small *ngIf="mainData.get('horaLLegada')?.errors?.['required']">la hora es requerida</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="horaLlegada">Cantidad de Personas:</label>
-                    <input type="number" id="cantidadPersonas" class="form-control" formControlName="cantidadPersonas">
-                    <div class="error">
-                        <div  *ngIf="mainData.get('cantidadPersonas')?.invalid && (mainData.get('cantidadPersonas')?.dirty || mainData.get('cantidadPersonas')?.touched)">
-                            <small *ngIf="mainData.get('cantidadPersonas')?.errors?.['required']">el numero de personas es requerido</small>
-                            <small *ngIf="mainData.get('cantidadPersonas')?.errors?.['min']">el campo requiere minimo 1 persona</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="mainData.invalid">Continuar</button>
-                  </div>
-            </form>
-        </div>
+  <div class="field">
+    <label for="nombreCompleto">Nombre Completo:</label>
+    <input type="text" id="nombreCompleto" class="form-control" formControlName="nombre">
+    <div class="error">
+      <div *ngIf="mainData.get('nombre')?.invalid && (mainData.get('nombre')?.dirty || mainData.get('nombre')?.touched)">
+        <small *ngIf="mainData.get('nombre')?.errors?.['required']">El nombre es requerido</small>
+        <small *ngIf="mainData.get('nombre')?.errors?.['minlength']">El campo requiere mínimo 5 caracteres</small>
       </div>
     </div>
   </div>
 
+  <div class="field">
+    <label for="identificacion">Identificación:</label>
+    <input type="text" id="identificacion" class="form-control" formControlName="cedula">
+    <div class="error">
+      <div *ngIf="mainData.get('cedula')?.invalid && (mainData.get('cedula')?.dirty || mainData.get('cedula')?.touched)">
+        <small *ngIf="mainData.get('cedula')?.errors?.['required']">El número de documento es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-control" formControlName="email">
+    <div class="error">
+      <div *ngIf="mainData.get('email')?.invalid && (mainData.get('email')?.dirty || mainData.get('email')?.touched)">
+        <small *ngIf="mainData.get('email')?.errors?.['required']">El email es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="fechaReserva">Selecciona la fecha de tu reserva:</label>
+    <input type="date" id="fechaReserva" class="form-control" formControlName="fechaReserva">
+    <div class="error">
+      <div *ngIf="mainData.get('fechaReserva')?.invalid && (mainData.get('fechaReserva')?.dirty || mainData.get('fechaReserva')?.touched)">
+        <small *ngIf="mainData.get('fechaReserva')?.errors?.['required']">La fecha es requerida</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="horaLlegada">Indica tu hora estimada de llegada:</label>
+    <input type="time" id="horaLlegada" class="form-control" formControlName="horaLLegada">
+    <div class="error">
+      <div *ngIf="mainData.get('horaLLegada')?.invalid && (mainData.get('horaLLegada')?.dirty || mainData.get('horaLLegada')?.touched)">
+        <small *ngIf="mainData.get('horaLLegada')?.errors?.['required']">La hora es requerida</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="cantidadPersonas">Cantidad de Personas:</label>
+    <input type="number" id="cantidadPersonas" class="form-control" formControlName="cantidadPersonas">
+    <div class="error">
+      <div *ngIf="mainData.get('cantidadPersonas')?.invalid && (mainData.get('cantidadPersonas')?.dirty || mainData.get('cantidadPersonas')?.touched)">
+        <small *ngIf="mainData.get('cantidadPersonas')?.errors?.['required']">El número de personas es requerido</small>
+        <small *ngIf="mainData.get('cantidadPersonas')?.errors?.['min']">El campo requiere mínimo 1 persona</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="mainData.invalid" data-bs-dismiss="modal">Continuar</button>
+  </div>
+
+</form>

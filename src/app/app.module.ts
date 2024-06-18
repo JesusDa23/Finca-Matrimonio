@@ -13,6 +13,11 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CardServiceComponent } from './pages/servicios/card-service/card-service.component';
 import { ListaMenuComponent } from './pages/servicios/form-restaurante/lista-menu/lista-menu.component';
 import { FormReservasComponent } from './pages/servicios/form-reservas/form-reservas.component';
+import { MainDataComponent } from './pages/servicios/main-data/main-data.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormEventosComponent } from './pages/servicios/form-eventos/form-eventos.component';
+import { FormCampingComponent } from './pages/servicios/form-camping/form-camping.component';
+import { FormRestauranteComponent } from './pages/servicios/form-restaurante/form-restaurante.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +30,17 @@ import { FormReservasComponent } from './pages/servicios/form-reservas/form-rese
     ServiciosComponent,
     CardServiceComponent,
     ListaMenuComponent,
-    FormReservasComponent
+    FormReservasComponent,
+    MainDataComponent,
+    FormEventosComponent,
+    FormCampingComponent,
+    FormRestauranteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
