@@ -46,11 +46,20 @@
             <td scope="row">{{bebida.price}}</td>
             <td scope="row">{{bebida.name}}</td>
             <td scope="row">
-                <a type="button" class="btn btn-primary"(click)="incrementar(i)">+</a>
-                <a type="button" class="btn btn-primary" (click)="decrementar(i)">-</a>
+                <a type="button" class="btn btn-primary"(click)="incrementar(i + platos.length)">+</a>
+                <a type="button" class="btn btn-primary" (click)="decrementar(i + platos.length)">-</a>
             </td>
           </tr>
         </tbody>
     </table>
+    <div class="btn total">
+        <div class="total-container">
+            <p class="total-label">Total:</p>
+            <p class="total-amount">{{ sumarPrecios() }}</p>
+        </div>
+        <button class="btn btn-outline-primary" (click)="guardarSeleccion()">Pagar</button>
+    </div>
+    
+    
     
 </div>

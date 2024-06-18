@@ -1,27 +1,17 @@
 h2 {
-    display: flex;
-    justify-content: center;
-    margin-top: .5em;
-    font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin-top: .5em;
+  font-weight: bolder;
 }
 
 h3 {
-    font-weight: bolder;
-
+  font-weight: bolder;
 }
 
 .menu {
     margin: 1em auto;
     width: 90%;
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin: 1em;
 }
 
 .menuProducts {
@@ -42,27 +32,27 @@ a.btn.btn-primary {
     margin-right: 1em;
 }
 
+.btn.total {
+  display: flex;
+  justify-content: space-between; /* Distribuye los elementos a los extremos */
+  align-items: center; /* Alinea verticalmente los elementos */
+  border: 1px solid #ccc;
+}
+
 .total-container {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-  }
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos dentro de total-container */  
+}
 
-  .total-label {
-    font-size: 19px;
-    font-weight: bold;
-    color: #333;
-  }
+.total-label {
+  margin-right: 10px; /* Espacio entre total y monto */
+  margin-bottom: 0em;
+  font-weight: bold;
 
-  .total-amount {
-    font-size: 19px;
-    font-weight: bold;
-    color: #007bff;
-  }
+}
 
-  .ml-auto {
-    margin-left: auto; /* Empuja el contenido hacia la derecha */
-  }
+.total-amount {
+  font-weight: bold;
+  color: #007bff; /* Color del monto */
+  margin-bottom: 0em;
+}

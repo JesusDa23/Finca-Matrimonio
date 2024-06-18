@@ -29,6 +29,7 @@ export class FormRestauranteComponent {
     });
   }
 
+
   incrementar(index:number) {
     this.menu[index].cantidad++
   }
@@ -38,6 +39,7 @@ export class FormRestauranteComponent {
       this.menu[index].cantidad--;
     }
   }
+
 
   sumarPrecios() {
     let total = 0;
