@@ -17,6 +17,7 @@ import { FormEventosComponent } from './pages/servicios/form-eventos/form-evento
 import { FormCampingComponent } from './pages/servicios/form-camping/form-camping.component';
 import { FormRestauranteComponent } from './pages/servicios/form-restaurante/form-restaurante.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { FormRestauranteComponent } from './pages/servicios/form-restaurante/for
     MainDataComponent,
     FormEventosComponent,
     FormCampingComponent,
-    FormRestauranteComponent
+    FormRestauranteComponent,
   ],
   imports: [
     BrowserModule,
