@@ -19,6 +19,7 @@ import { FormRestauranteComponent } from './pages/servicios/form-restaurante/for
 import { BebidasComponent } from './pages/servicios/form-restaurante/bebidas/bebidas.component';
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
 import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pago/total-pago.component';
+import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pag
     FormRestauranteComponent,
     BebidasComponent,
     PlatosComponent,
-    TotalPagoComponent
+    TotalPagoComponent,
+    EntradasComponent
   ],
   imports: [
     BrowserModule,

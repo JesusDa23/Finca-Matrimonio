@@ -1,19 +1,27 @@
-
 <form action="">
     <p>¿Cómo te gustaría que sea tu evento?</p>
-      <div class="mb-3">
+    <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Descripción:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe aquí cómo quieres tu evento (cumpleaños, graduación, boda, etc.)"></textarea>
     </div>
+
     <div class="mb-3">
-        <a routerLink="/restaurante">Opciones de comida</a>
+        <app-form-restaurante (actualizarTotal)="actualizarTotalComida($event)"></app-form-restaurante>
     </div>
+
     <div class="mb-3">
-        <a routerLink="/restaurante">Opciones de entradas</a>
+        <app-entradas (actualizarTotal)="recibirEntradas($event)"></app-entradas>
     </div>
-    <div class="mb-3">
-        <a routerLink="/restaurante">Opciones de decoracion</a>
+
+    <div class="total">
+        <p class="total-label">Total del evento:</p>
+        <p class="total-amount">{{ calcularTotal() }}</p>
+    </div>
+
+    <div class="btn total">
+        <app-total-pago (pagar)="onPagar()"></app-total-pago>
     </div>
 </form>
 
 
+  

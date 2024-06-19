@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
+import { EntradasService } from './entradas/services/entradas.service';
+import { EntradasComponent } from './entradas/entradas.component';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -8,18 +10,19 @@ import Swal from 'sweetalert2';
   styleUrl: './form-restaurante.component.css'
 })
 export class FormRestauranteComponent {
-
   menu: any[] = [];
   platos: any[] = [];
   bebidas: any[] = [];
+  entradasSeleccionadas: any[] = []; // Arreglo para almacenar las entradas seleccionadas
 
-  constructor(private MenuService: ObtenerMenuService) {}
+  @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
+  @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
+
+  constructor(private obtenerMenuService: ObtenerMenuService) {}
 
   ngOnInit() {
-    this.MenuService.getMenu().subscribe((data) => {
-      console.log(data);
+    this.obtenerMenuService.getMenu().subscribe((data) => {
       this.menu = data.data.map((plato: any) => ({ ...plato, cantidad: 0 }));
-
       this.platos = this.menu.filter(item => item.type === 'plato');
       this.bebidas = this.menu.filter(item => item.type === 'bebida');
     });
@@ -28,52 +31,43 @@ export class FormRestauranteComponent {
   incrementar(index: number) {
     if (index < this.platos.length) {
       this.platos[index].cantidad++;
-    } else {
+    } else if (index < this.platos.length + this.bebidas.length) {
       const bebidaIndex = index - this.platos.length;
       this.bebidas[bebidaIndex].cantidad++;
     }
+    this.actualizarTotal.emit(this.sumarPrecios());
   }
-
+  
   decrementar(index: number) {
     if (index < this.platos.length) {
       if (this.platos[index].cantidad > 0) {
         this.platos[index].cantidad--;
       }
-    } else {
+    } else if (index < this.platos.length + this.bebidas.length) {
       const bebidaIndex = index - this.platos.length;
       if (this.bebidas[bebidaIndex].cantidad > 0) {
         this.bebidas[bebidaIndex].cantidad--;
       }
     }
+    this.actualizarTotal.emit(this.sumarPrecios());
   }
 
   sumarPrecios() {
     let total = 0;
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
+    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionadas
     return total;
   }
 
-  guardarSeleccion() {
-    const productosSeleccionados = [
-      ...this.platos.filter(plato => plato.cantidad > 0).map(plato => ({
-        name: plato.name,
-        price: plato.price,
-        cantidad: plato.cantidad
-      })),
-      ...this.bebidas.filter(bebida => bebida.cantidad > 0).map(bebida => ({
-        name: bebida.name,
-        price: bebida.price,
-        cantidad: bebida.cantidad
-      }))
-    ];
-
+  guardarSeleccion(productosSeleccionados: any[]) {
+    // Guardar la selección con los productos seleccionados recibidos como argumento
     const seleccion = {
       productos: productosSeleccionados,
       total: this.sumarPrecios()
     };
 
-    this.MenuService.guardarSeleccion(seleccion).subscribe(
+    this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
       (response) => {
         Swal.fire({
           icon: 'success',
@@ -94,5 +88,47 @@ export class FormRestauranteComponent {
         });
       }
     );
+  }
+
+  obtenerProductosSeleccionados() {
+    return [
+      ...this.platos.filter(plato => plato.cantidad > 0).map(plato => ({
+        name: plato.name,
+        price: plato.price,
+        cantidad: plato.cantidad,
+        type: 'plato'
+      })),
+      ...this.bebidas.filter(bebida => bebida.cantidad > 0).map(bebida => ({
+        name: bebida.name,
+        price: bebida.price,
+        cantidad: bebida.cantidad,
+        type: 'bebida'
+      })),
+      ...this.entradasSeleccionadas
+    ];
+  }
+
+  onPagar() {
+    // Obtener productos seleccionados del restaurante
+    const productosRestaurante = this.obtenerProductosSeleccionados();
+    // Obtener productos seleccionados de las entradas
+    const productosEntradas = this.entradasComponent.obtenerProductosSeleccionados();
+    // Combinar ambos arreglos de productos
+    const productosSeleccionados = [...productosRestaurante, ...productosEntradas];
+
+    // Guardar la selección
+    this.guardarSeleccion(productosSeleccionados);
+  }
+  
+  onPagar2(){
+    const productosRestaurante = this.obtenerProductosSeleccionados();
+    const productosSeleccionados = [...productosRestaurante ];
+    this.guardarSeleccion(productosSeleccionados)
+  }
+
+  // Método para recibir las entradas seleccionadas desde EntradasComponent
+  recibirEntradasSeleccionadas(infoEntradas: any[]) {
+    this.entradasSeleccionadas = infoEntradas;
+    this.actualizarTotal.emit(this.sumarPrecios());
   }
 }
