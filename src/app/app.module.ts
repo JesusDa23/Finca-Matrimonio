@@ -16,6 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormEventosComponent } from './pages/servicios/form-eventos/form-eventos.component';
 import { FormCampingComponent } from './pages/servicios/form-camping/form-camping.component';
 import { FormRestauranteComponent } from './pages/servicios/form-restaurante/form-restaurante.component';
+import { BebidasComponent } from './pages/servicios/form-restaurante/bebidas/bebidas.component';
+import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
+import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pago/total-pago.component';
 
 
 @NgModule({
@@ -32,6 +35,9 @@ import { FormRestauranteComponent } from './pages/servicios/form-restaurante/for
     FormEventosComponent,
     FormCampingComponent,
     FormRestauranteComponent,
+    BebidasComponent,
+    PlatosComponent,
+    TotalPagoComponent
   ],
   imports: [
     BrowserModule,

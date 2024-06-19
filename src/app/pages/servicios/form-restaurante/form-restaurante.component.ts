@@ -13,64 +13,46 @@ export class FormRestauranteComponent {
   platos: any[] = [];
   bebidas: any[] = [];
 
-  /** Inyectar una dependencia (hacerla disponible) usando el constructor de la clase del componente */
-  constructor( private MenuService: ObtenerMenuService ) {}
-
+  constructor(private MenuService: ObtenerMenuService) {}
 
   ngOnInit() {
-    /** Ejecuta el servicio disponible para obtener los datos */
-    this.MenuService.getMenu().subscribe( ( data ) => {
+    this.MenuService.getMenu().subscribe((data) => {
       console.log(data);
-      this.menu = data.data.map((plato:any) => ({...plato,
-        cantidad: 0 }))
-      
-      // Filtrar platos y bebidas
+      this.menu = data.data.map((plato: any) => ({ ...plato, cantidad: 0 }));
+
       this.platos = this.menu.filter(item => item.type === 'plato');
       this.bebidas = this.menu.filter(item => item.type === 'bebida');
     });
   }
 
-
   incrementar(index: number) {
     if (index < this.platos.length) {
-        // Incrementar cantidad del plato
-        this.platos[index].cantidad++;
+      this.platos[index].cantidad++;
     } else {
-        // Incrementar cantidad de la bebida
-        const bebidaIndex = index - this.platos.length;
-        this.bebidas[bebidaIndex].cantidad++;
+      const bebidaIndex = index - this.platos.length;
+      this.bebidas[bebidaIndex].cantidad++;
     }
-}
+  }
 
   decrementar(index: number) {
     if (index < this.platos.length) {
-        // Decrementar cantidad del plato
-        if (this.platos[index].cantidad > 0) {
-            this.platos[index].cantidad--;
-        }
+      if (this.platos[index].cantidad > 0) {
+        this.platos[index].cantidad--;
+      }
     } else {
-        // Decrementar cantidad de la bebida
-        const bebidaIndex = index - this.platos.length;
-        if (this.bebidas[bebidaIndex].cantidad > 0) {
-            this.bebidas[bebidaIndex].cantidad--;
-        }
+      const bebidaIndex = index - this.platos.length;
+      if (this.bebidas[bebidaIndex].cantidad > 0) {
+        this.bebidas[bebidaIndex].cantidad--;
+      }
     }
-}
-
+  }
 
   sumarPrecios() {
     let total = 0;
-
-    // Sumar precios de platos
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
-  
-    // Sumar precios de bebidas
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
-  
     return total;
   }
-
-
 
   guardarSeleccion() {
     const productosSeleccionados = [
