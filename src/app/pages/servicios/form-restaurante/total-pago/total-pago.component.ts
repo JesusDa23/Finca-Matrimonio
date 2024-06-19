@@ -6,7 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './total-pago.component.css'
 })
 export class TotalPagoComponent {
-  @Input() total: number = 0;
   @Output() pagar = new EventEmitter<void>();
 
   onPagar() {
