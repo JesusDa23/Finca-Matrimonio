@@ -14,6 +14,7 @@ import { CardServiceComponent } from './pages/servicios/card-service/card-servic
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
 import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
+import { PhotosComponent } from './pages/nosotros/photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.compone
     CardServiceComponent,
     NosotrosComponent,
     BannerComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,

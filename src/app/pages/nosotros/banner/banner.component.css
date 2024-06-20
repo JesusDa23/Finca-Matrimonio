@@ -15,3 +15,12 @@ p.title-history {
         background-attachment: fixed;
         padding: 27px 0;
 }
+
+
+@media (width <= 576px)
+{
+    p.title-history {
+        font-size: 48px;
+        padding: .7em;
+    }
+}
