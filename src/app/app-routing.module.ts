@@ -8,6 +8,7 @@ import { FormEventosComponent } from './pages/servicios/form-eventos/form-evento
 import { FormCampingComponent } from './pages/servicios/form-camping/form-camping.component';
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'entradas', component: EntradasComponent},
   {path: 'platos', component: PlatosComponent},
 
+  {path:'nosotros', component: NosotrosComponent},
   {path:'**', redirectTo: 'home'}
 ];
 

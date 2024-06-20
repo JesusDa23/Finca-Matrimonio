@@ -21,6 +21,11 @@ import { PlatosComponent } from './pages/servicios/form-restaurante/platos/plato
 import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pago/total-pago.component';
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { BannerComponent } from './pages/nosotros/banner/banner.component';
+import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
+import { PhotosComponent } from './pages/nosotros/photos/photos.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/e
     BebidasComponent,
     PlatosComponent,
     TotalPagoComponent,
-    EntradasComponent
+    EntradasComponent,
+    NosotrosComponent,
+    BannerComponent,
+    ParagraphComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
