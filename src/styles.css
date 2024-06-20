@@ -3,3 +3,10 @@
     padding: 0;
     margin: 0;
 }
+
+@font-face {
+    font-family: 'Poppins Regular';
+    font-size: normal;
+    font-weight: normal;
+    src: local('Poppins-Refular') url('assets/fonts/Poppins/Poppins-Regular.ttf');
+}

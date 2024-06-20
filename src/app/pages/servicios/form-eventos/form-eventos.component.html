@@ -1,7 +1,6 @@
 <form action="">
-    <p>¿Cómo te gustaría que sea tu evento?</p>
+    <p class="title-event">¿Cómo te gustaría que sea tu evento?</p>
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Descripción:</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe aquí cómo quieres tu evento (cumpleaños, graduación, boda, etc.)"></textarea>
     </div>
 
@@ -13,12 +12,11 @@
         <app-entradas (actualizarTotal)="recibirEntradas($event)"></app-entradas>
     </div>
 
-    <div class="total">
-        <p class="total-label">Total del evento:</p>
-        <p class="total-amount">{{ calcularTotal() }}</p>
-    </div>
-
-    <div class="btn total">
+    <div class="btn-total">
+        <div class="total-container">
+            <p class="total-label">Total del evento:</p>
+            <p class="total-amount">{{ calcularTotal() }}</p>
+        </div>
         <app-total-pago (pagar)="onPagar()"></app-total-pago>
     </div>
 </form>

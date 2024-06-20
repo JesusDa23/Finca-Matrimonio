@@ -1,4 +1,8 @@
 /* estilos del header */
+.footer {
+  font-family: 'Poppins Regular';
+}
+
 
 .content-header {
     display: flex;

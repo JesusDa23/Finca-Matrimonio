@@ -1,4 +1,8 @@
 /*pie de pagina footer*/
+footer {
+  font-family: 'Poppins Regular';
+}
+
 .testimonios {
     background-color: black;
     gap: 1rem;

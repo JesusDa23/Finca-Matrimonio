@@ -1,4 +1,4 @@
-<h2>Nuestro menú</h2>
+<!-- <h2>Nuestro menú</h2> -->
 <div class="menu">
   <app-platos
     [platos]="platos"
@@ -17,6 +17,7 @@
       <p class="total-label">Total:</p>
       <p class="total-amount">{{ sumarPrecios() }}</p>
     </div>
-    <div class="button" class="btn btn-outline-primary" (click)="onPagar2()">Pagar2</div>
+    <button class="button" class="btn btn-success" (click)="onPagar2()">
+        <i class="fas fa-credit-card mr-2"></i> Pagar!</button>
   </div>
 </div>
