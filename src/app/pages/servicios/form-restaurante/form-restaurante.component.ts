@@ -66,15 +66,26 @@ export class FormRestauranteComponent {
     const nombreReserva = this.sharedDataService.getName();
     const telefonoReserva = this.sharedDataService.getTelefono();
     const cantidad = this.sharedDataService.getCantidad();
+    const fechaReserva = this.sharedDataService.getFecha();
+    const horaLlegada = this.sharedDataService.getHora();
     // Guardar la selección con los productos seleccionados recibidos como argumento
-    const seleccion = {
-      productos: productosSeleccionados,
-      total: this.sumarPrecios(),
+    
+    const cliente = [{
       cedula: cedulaReserva,
       nombre: nombreReserva,
       telefono: telefonoReserva,
-      cantidadPersonas: cantidad
+      cantidadPersonas: cantidad,
+      fechaReserva: fechaReserva,
+      horaLlegada: horaLlegada
+    }]
+
+    const seleccion = {
+      productos: productosSeleccionados,
+      total: this.sumarPrecios(),
+      cliente: cliente
     };
+
+
 
     this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
       (response) => {

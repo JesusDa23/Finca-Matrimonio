@@ -53,10 +53,10 @@
 
   <div class="field">
     <label for="horaLlegada">Indica tu hora estimada de llegada:</label>
-    <input type="time" id="horaLlegada" class="form-control" formControlName="horaLLegada">
+    <input type="time" id="horaLlegada" class="form-control" formControlName="horaLlegada">
     <div class="error">
-      <div *ngIf="mainData.get('horaLLegada')?.invalid && (mainData.get('horaLLegada')?.dirty || mainData.get('horaLLegada')?.touched)">
-        <small *ngIf="mainData.get('horaLLegada')?.errors?.['required']">La hora es requerida</small>
+      <div *ngIf="mainData.get('horaLlegada')?.invalid && (mainData.get('horaLlegada')?.dirty || mainData.get('horaLlegada')?.touched)">
+        <small *ngIf="mainData.get('horaLlegada')?.errors?.['required']">La hora es requerida</small>
       </div>
     </div>
   </div>

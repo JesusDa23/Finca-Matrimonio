@@ -25,7 +25,7 @@ export class MainDataComponent {
     email: ['', [Validators.required]],
     telefono: ['', [Validators.required]],
     fechaReserva: ['', [Validators.required]],
-    horaLLegada: ['', [Validators.required]],
+    horaLlegada: ['', [Validators.required]],
     // tipoServicio: ['', [Validators.required]],
     cantidadPersonas: ['', [Validators.required, Validators.min(1)]],
     // estado: ['', [Validators.required]]
@@ -37,10 +37,11 @@ export class MainDataComponent {
       this.sharedDataService.setName(this.mainData.get('nombre')?.value);
       this.sharedDataService.setTelefono(this.mainData.get('telefono')?.value);
       this.sharedDataService.setPersonas(this.mainData.get('cantidadPersonas')?.value)
+      this.sharedDataService.setFecha(this.mainData.get('fechaReserva')?.value);
+      this.sharedDataService.setHora(this.mainData.get('horaLlegada')?.value)
       
 
       this.reservaService.insertarReserva(this.mainData.value).subscribe( response => {
-        console.log(response)
         this.mostrarOtroForm()
       })
 
