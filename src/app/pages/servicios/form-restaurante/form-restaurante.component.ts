@@ -3,6 +3,7 @@ import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
+import { CompartiCedulaService } from '../Services/compartirCedula.service';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -18,7 +19,7 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  constructor(private obtenerMenuService: ObtenerMenuService) {}
+  constructor(private obtenerMenuService: ObtenerMenuService, private sharedDataService: CompartiCedulaService) {}
 
   ngOnInit() {
     this.obtenerMenuService.getMenu().subscribe((data) => {
@@ -61,31 +62,39 @@ export class FormRestauranteComponent {
   }
 
   guardarSeleccion(productosSeleccionados: any[]) {
+    const cedulaReserva = this.sharedDataService.getCedula();
+    const nombreReserva = this.sharedDataService.getName();
+    const telefonoReserva = this.sharedDataService.getTelefono();
+    const cantidad = this.sharedDataService.getCantidad();
     // Guardar la selección con los productos seleccionados recibidos como argumento
     const seleccion = {
       productos: productosSeleccionados,
-      total: this.sumarPrecios()
+      total: this.sumarPrecios(),
+      cedula: cedulaReserva,
+      nombre: nombreReserva,
+      telefono: telefonoReserva,
+      cantidadPersonas: cantidad
     };
 
     this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
       (response) => {
-        Swal.fire({
-          icon: 'success',
-          title: '¡Reserva Exitosa!',
-          text: 'Su reserva ha sido guardada correctamente.',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Ok'
-        });
+          Swal.fire({
+            icon: 'success',
+            title: '¡Reserva Exitosa!',
+            text: 'Su reserva ha sido guardada correctamente.',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok'
+          });
       },
       (error) => {
         console.error('Error al guardar los datos:', error);
-        Swal.fire({
-          icon: 'error',
-          title: '¡Error!',
-          text: 'Hubo un problema al guardar la reserva.',
-          confirmButtonColor: '#d33',
-          confirmButtonText: 'Cerrar'
-        });
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al guardar la reserva.',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Cerrar'
+          });
       }
     );
   }
@@ -117,7 +126,7 @@ export class FormRestauranteComponent {
     const productosSeleccionados = [...productosRestaurante, ...productosEntradas];
 
     // Guardar la selección
-    this.guardarSeleccion(productosSeleccionados);
+    this.guardarSeleccion(productosSeleccionados, );
   }
   
   onPagar2(){

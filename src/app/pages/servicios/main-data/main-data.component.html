@@ -12,7 +12,7 @@
   </div>
 
   <div class="field">
-    <label for="identificacion">Identificación:</label>
+    <label for="identificacion">Numero de identificación:</label>
     <input type="text" id="identificacion" class="form-control" formControlName="cedula">
     <div class="error">
       <div *ngIf="mainData.get('cedula')?.invalid && (mainData.get('cedula')?.dirty || mainData.get('cedula')?.touched)">
@@ -27,6 +27,16 @@
     <div class="error">
       <div *ngIf="mainData.get('email')?.invalid && (mainData.get('email')?.dirty || mainData.get('email')?.touched)">
         <small *ngIf="mainData.get('email')?.errors?.['required']">El email es requerido</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="telefono">Telefono:</label>
+    <input type="tel" id="tel" class="form-control" formControlName="telefono">
+    <div class="error">
+      <div *ngIf="mainData.get('telefono')?.invalid && (mainData.get('telefono')?.dirty || mainData.get('telefono')?.touched)">
+        <small *ngIf="mainData.get('telefono')?.errors?.['required']">El telefono es requerido</small>
       </div>
     </div>
   </div>
