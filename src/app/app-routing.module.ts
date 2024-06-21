@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'mostrar', component:MostrarPedidoComponent},
 
   {path:'nosotros', component: NosotrosComponent},
+
   {path:'**', redirectTo: 'home'}
 ];
 
