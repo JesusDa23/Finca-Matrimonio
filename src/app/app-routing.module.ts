@@ -8,7 +8,12 @@ import { FormEventosComponent } from './pages/servicios/form-eventos/form-evento
 import { FormCampingComponent } from './pages/servicios/form-camping/form-camping.component';
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
+<<<<<<< HEAD
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+=======
+import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
+>>>>>>> feature/consulta
 
 
 const routes: Routes = [
@@ -24,7 +29,13 @@ const routes: Routes = [
   {path: 'entradas', component: EntradasComponent},
   {path: 'platos', component: PlatosComponent},
 
+<<<<<<< HEAD
   {path:'nosotros', component: NosotrosComponent},
+=======
+  {path: 'consulta', component:ConsultaComponent},
+  {path: 'mostrar', component:MostrarPedidoComponent},
+
+>>>>>>> feature/consulta
   {path:'**', redirectTo: 'home'}
 ];
 

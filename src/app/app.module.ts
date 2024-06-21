@@ -20,6 +20,8 @@ import { BebidasComponent } from './pages/servicios/form-restaurante/bebidas/beb
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
 import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pago/total-pago.component';
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
+import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
 
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
@@ -48,7 +50,9 @@ import { PhotosComponent } from './pages/nosotros/photos/photos.component';
     NosotrosComponent,
     BannerComponent,
     ParagraphComponent,
-    PhotosComponent
+    PhotosComponent,
+    ConsultaComponent,
+    MostrarPedidoComponent
   ],
   imports: [
     BrowserModule,

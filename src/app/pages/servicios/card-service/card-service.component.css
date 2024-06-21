@@ -16,17 +16,28 @@ img.card-img-top {
     object-fit: cover;
 }
 
+.modal-title {
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
+    font-size: 1em;
+}
+
 h5.card-title {
     display: flex;
     justify-content: center;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
+    font-size: 1.6em;
 }
 
 p.card-text {
     height: 7rem;
+    font-family: 'Reboto-Regular';
 }
 
 a.btn.btn-primary {
     display: flex;
     width: 62%;
     justify-content: center;
+    font-family: 'Reboto-Regular';
 }

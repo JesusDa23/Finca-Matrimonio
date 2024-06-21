@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="titulo">Mis Datos</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre Completo</th>
+          <th>Cédula</th>
+          <th>Email</th>
+          <th>Contacto</th>
+          <th>Fecha de Reserva</th>
+          <th>Hora de Llegada</th>
+          <th>Cantidad de Personas</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of dataCliente">
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.cedula }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.telefono }}</td>
+          <td>{{ cliente.fechaReserva }}</td>
+          <td>{{ cliente.horaLlegada }}</td>
+          <td>{{ cliente.cantidadPersonas }}</td>
+          <td>{{ cliente.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="titulo">Mi Pedido</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of allProducts">
+          <td>{{ producto.name }}</td>
+          <td>{{ producto.price }}</td>
+          <td>{{ producto.cantidad }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
