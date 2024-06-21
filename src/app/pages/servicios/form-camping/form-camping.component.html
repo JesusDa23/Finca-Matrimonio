@@ -1,1 +1,14 @@
-<p>hola 3</p>
+<p class="pregunta">Desea incluir el menu</p>
+<div class="botones">
+    <button class="btn btn-success" (click)="mostrarMenu()" [disabled]="mostrarMenuActivo">Sí</button>
+    <button class="btn btn-primary" (click)="ocultarMenu()" [disabled]="!mostrarMenuActivo">No</button>
+</div>
+    
+  
+    <div *ngIf="menuVisible">
+        
+
+      <!-- Aquí va el contenido del menú -->
+      <li><app-form-restaurante></app-form-restaurante></li>
+    </div>
+  

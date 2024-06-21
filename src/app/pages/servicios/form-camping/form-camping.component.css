@@ -1,0 +1,10 @@
+.pregunta {
+    font-size: 20px;
+    margin: 1rem;
+}
+.botones{
+    display: flex;
+    justify-content: start;
+    gap: 2em;
+    margin: 1rem;
+}
