@@ -3,12 +3,21 @@
     <button class="btn btn-success" (click)="mostrarMenu()" [disabled]="mostrarMenuActivo">Sí</button>
     <button class="btn btn-primary" (click)="ocultarMenu()" [disabled]="!mostrarMenuActivo">No</button>
 </div>
-    
-  
     <div *ngIf="menuVisible">
-        
-
-      <!-- Aquí va el contenido del menú -->
       <li><app-form-restaurante></app-form-restaurante></li>
     </div>
   
+    <h3 class="h3">Capacidad del camping</h3>
+    
+<div class="tarjetas" >
+    <div class="card" style="width: 18rem;" *ngFor=" let dato of data">
+        <img [src]="dato.urlImagen" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{dato.nombre}}</h5>
+          <p class="card-text">{{dato.descripcion}}</p>
+          <p class="card-text">{{dato.precio}}</p>
+          <a href="#" class="btn btn-primary">Reservar</a>
+        </div>
+      </div>    
+</div>
+    

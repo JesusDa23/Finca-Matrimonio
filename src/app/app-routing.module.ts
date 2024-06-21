@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: 'platos', component: PlatosComponent},
 
   {path:'nosotros', component: NosotrosComponent},
+
   {path:'**', redirectTo: 'home'}
 ];
 
