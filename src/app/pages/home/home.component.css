@@ -35,10 +35,15 @@ p.horario-servicio {
 
 button.btn.btn-primary {
     font-size: 20px;
-    margin: 0 100px;
     border: 3px solid #ffffff;
     background-color: transparent;
 }
+
+.containerbuttons {
+  margin-left: 100px;
+}
+
+
 
 @media (width<=576px) {
 
