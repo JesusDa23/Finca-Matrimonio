@@ -1,9 +1,9 @@
-/* body{
+body{
     background-image: linear-gradient(
     rgb(255, 255, 255),
     rgba(255, 255, 255, 0.5)),
-    url(../../../../assets/imagenes/fondo3.png);  natalia.. 
-} */
+    url(../../../../assets/imagenes/fondo3.png);  
+}
 
 .pregunta-boton{
     display: flex;
