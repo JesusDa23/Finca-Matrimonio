@@ -34,13 +34,16 @@ i.fa-solid.fa-chevron-left {
 }
 
 .card1 h2 {
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
     font-size: 2em;
     display: flex;
     justify-content: center;
 }
 
 .card1 p {
-    font-size: 1em ;
+    font-family: 'Reboto-Regular';
+    font-size: 1.1em ;
 }
 
 @media (width<=576px) {

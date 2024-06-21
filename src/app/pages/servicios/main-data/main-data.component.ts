@@ -39,6 +39,7 @@ export class MainDataComponent {
       this.sharedDataService.setPersonas(this.mainData.get('cantidadPersonas')?.value)
       this.sharedDataService.setFecha(this.mainData.get('fechaReserva')?.value);
       this.sharedDataService.setHora(this.mainData.get('horaLlegada')?.value)
+      this.sharedDataService.setEmail(this.mainData.get('email')?.value)
       
 
       this.reservaService.insertarReserva(this.mainData.value).subscribe( response => {

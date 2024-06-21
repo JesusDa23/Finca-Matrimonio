@@ -1,0 +1,69 @@
+.container {
+    max-width: 70em;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
+    font-size: 2em;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid black;
+  }
+  
+  .table th {
+    background-color: #f7e5d2;
+    color: black;
+  }
+  
+  
+  .table-bordered {
+    border: 1px solid black;
+  }
+  
+  .table-bordered th, .table-bordered td {
+    
+    border: 1px solid black;
+  }
+
+  thead {
+    text-align: center;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  tbody {
+    font-family: 'Reboto-Regular';
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+  

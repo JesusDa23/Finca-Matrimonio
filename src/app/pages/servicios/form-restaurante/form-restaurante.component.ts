@@ -68,6 +68,7 @@ export class FormRestauranteComponent {
     const cantidad = this.sharedDataService.getCantidad();
     const fechaReserva = this.sharedDataService.getFecha();
     const horaLlegada = this.sharedDataService.getHora();
+    const emailCliente = this.sharedDataService.getEmail();
     // Guardar la selección con los productos seleccionados recibidos como argumento
     
     const cliente = [{
@@ -76,7 +77,8 @@ export class FormRestauranteComponent {
       telefono: telefonoReserva,
       cantidadPersonas: cantidad,
       fechaReserva: fechaReserva,
-      horaLlegada: horaLlegada
+      horaLlegada: horaLlegada,
+      email: emailCliente
     }]
 
     const seleccion = {

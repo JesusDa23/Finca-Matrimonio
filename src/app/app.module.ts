@@ -20,7 +20,8 @@ import { BebidasComponent } from './pages/servicios/form-restaurante/bebidas/beb
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
 import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pago/total-pago.component';
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
-import { ConsultaComponent } from './pages/home/consulta/consulta.component';
+import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ConsultaComponent } from './pages/home/consulta/consulta.component';
     PlatosComponent,
     TotalPagoComponent,
     EntradasComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    MostrarPedidoComponent
   ],
   imports: [
     BrowserModule,

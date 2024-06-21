@@ -12,6 +12,7 @@ export class CompartiCedulaService {
   private cantidadPersonas: number = 0
   private fecha: string = ''
   private hora: string = ''
+  private email:string = ''
 
   setCedula(cedula: string,) {
     this.cedula = cedula;
@@ -35,6 +36,10 @@ export class CompartiCedulaService {
 
   setHora(hora: string){
     this.hora = hora
+  }
+
+  setEmail(email: string){
+    this.email = email
   }
 
 
@@ -62,6 +67,10 @@ export class CompartiCedulaService {
 
   getHora():string{
     return this.hora
+  }
+
+  getEmail():string{
+    return this.email
   }
 
 
