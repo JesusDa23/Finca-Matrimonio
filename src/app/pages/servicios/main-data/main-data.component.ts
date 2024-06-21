@@ -20,7 +20,7 @@ export class MainDataComponent {
   ){}
 
   mainData: FormGroup = this.formBuilder.group({
-    nombre: ['', [Validators.required, Validators.minLength(5)]],
+    nombre: ['', [Validators.required, Validators.minLength(2)]],
     cedula: ['', [Validators.required]],
     email: ['', [Validators.required]],
     telefono: ['', [Validators.required]],

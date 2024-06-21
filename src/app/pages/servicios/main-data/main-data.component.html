@@ -6,7 +6,7 @@
     <div class="error">
       <div *ngIf="mainData.get('nombre')?.invalid && (mainData.get('nombre')?.dirty || mainData.get('nombre')?.touched)">
         <small *ngIf="mainData.get('nombre')?.errors?.['required']">El nombre es requerido</small>
-        <small *ngIf="mainData.get('nombre')?.errors?.['minlength']">El campo requiere mínimo 5 caracteres</small>
+        <small *ngIf="mainData.get('nombre')?.errors?.['minlength']">El campo requiere mínimo 2 caracteres</small>
       </div>
     </div>
   </div>
