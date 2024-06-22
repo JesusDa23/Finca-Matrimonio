@@ -1,3 +1,29 @@
+body{
+    background-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0.5)),
+    url(../../../../assets/imagenes/cafe-fondo.png);
+}
+
+.container {
+    display: flex;
+}
+
+h2.title-coffe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8f6b3c;
+    font-size: 30px;
+    padding: 3% 3%;
+}
+
+p.contenido-cafe {
+    margin-right: 7%;
+    margin-left: 7%;
+    margin-bottom: 4%
+}
+
 .cardService {
     display: flex;
     justify-content:center;

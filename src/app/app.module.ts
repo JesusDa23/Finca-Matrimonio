@@ -11,6 +11,14 @@ import { CarrucelComponent } from './pages/home/carrucel/carrucel.component';
 import { MatrimoniosComponent } from './pages/home/matrimonios/matrimonios.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CardServiceComponent } from './pages/servicios/card-service/card-service.component';
+import { MainCafeComponent } from './pages/cafe/main-cafe/main-cafe.component';
+import { EncabezadoComponent } from './pages/cafe/encabezado/encabezado.component';
+import { FondoComponent } from './pages/cafe/fondo/fondo.component';
+import { CarrucelCafeComponent } from './pages/cafe/carrucel-cafe/carrucel-cafe.component';
+import { CafeComponent } from './pages/cafe/cafe.component';
+import { CafeM250Component } from './pages/cafe/cafe-m-250/cafe-m-250.component';
+import { CafeM500Component } from './pages/cafe/cafe-m-500/cafe-m-500.component';
+import { CafeT500Component } from './pages/cafe/cafe-t-500/cafe-t-500.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,15 @@ import { CardServiceComponent } from './pages/servicios/card-service/card-servic
     CarrucelComponent,
     MatrimoniosComponent,
     ServiciosComponent,
-    CardServiceComponent
+    CardServiceComponent,
+    MainCafeComponent,
+    EncabezadoComponent,
+    FondoComponent,
+    CarrucelCafeComponent,
+    CafeComponent,
+    CafeM250Component,
+    CafeM500Component,
+    CafeT500Component
   ],
   imports: [
     BrowserModule,
