@@ -22,6 +22,7 @@ import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pag
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
+import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/buttons-consulta.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-
     TotalPagoComponent,
     EntradasComponent,
     ConsultaComponent,
-    MostrarPedidoComponent
+    MostrarPedidoComponent,
+    ButtonsConsultaComponent
   ],
   imports: [
     BrowserModule,

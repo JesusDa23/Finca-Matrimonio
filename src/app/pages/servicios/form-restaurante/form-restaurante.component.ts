@@ -38,6 +38,8 @@ export class FormRestauranteComponent {
     }
     this.actualizarTotal.emit(this.sumarPrecios());
   }
+
+  
   
   decrementar(index: number) {
     if (index < this.platos.length) {
