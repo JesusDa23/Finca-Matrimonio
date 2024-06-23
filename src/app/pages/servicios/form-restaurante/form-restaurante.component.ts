@@ -38,6 +38,8 @@ export class FormRestauranteComponent {
     }
     this.actualizarTotal.emit(this.sumarPrecios());
   }
+
+  
   
   decrementar(index: number) {
     if (index < this.platos.length) {
@@ -145,6 +147,20 @@ export class FormRestauranteComponent {
   onPagar2(){
     const productosRestaurante = this.obtenerProductosSeleccionados();
     const productosSeleccionados = [...productosRestaurante ];
+
+    if (productosSeleccionados.length === 0) {
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: 'Debe seleccionar al menos un producto antes de pagar.',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Cerrar'
+      });
+      return;
+    }
+
+    this.guardarSeleccion(productosSeleccionados);
+
     this.guardarSeleccion(productosSeleccionados)
   }
 

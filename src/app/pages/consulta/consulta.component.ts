@@ -26,6 +26,7 @@ export class ConsultaComponent {
 
     console.log(this.dataPedido)
     this.router.navigate(['/mostrar'])
+    localStorage.setItem(this.numeroIdentificacion.get('cedula')?.value, 'cedula')
    })
   }
 
