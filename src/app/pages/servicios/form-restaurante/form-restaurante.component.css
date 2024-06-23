@@ -29,10 +29,10 @@ h2 {
 }
 
 .total-label {
-  margin-right: 10px; /* Espacio entre total y monto */
+  margin-left: .5em;
+  margin-right: 10px;
   margin-bottom: 0em;
   font-weight: bold;
-
 }
 
 .total-amount {
