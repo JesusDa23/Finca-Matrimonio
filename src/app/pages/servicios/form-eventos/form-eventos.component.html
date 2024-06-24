@@ -1,11 +1,11 @@
-<form action="">
+<form (submit)="onFormSubmit($event)">
     <p class="title-event">¿Cómo te gustaría que sea tu evento?</p>
     <div class="mb-3">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe aquí cómo quieres tu evento (cumpleaños, graduación, boda, etc.)"></textarea>
     </div>
 
     <div class="mb-3">
-        <app-form-restaurante (actualizarTotal)="actualizarTotalComida($event)"></app-form-restaurante>
+        <app-form-restaurante [mostrarBtnTotal]="false" (actualizarTotal)="actualizarTotalComida($event)"></app-form-restaurante>
     </div>
 
     <div class="mb-3">

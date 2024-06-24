@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, Input } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
@@ -16,6 +16,7 @@ export class FormRestauranteComponent {
   bebidas: any[] = [];
   entradasSeleccionadas: any[] = []; // Arreglo para almacenar las entradas seleccionadas
 
+  @Input() mostrarBtnTotal: boolean = true
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
@@ -92,24 +93,23 @@ export class FormRestauranteComponent {
 
 
     this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
-      (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: '¡Reserva Exitosa!',
-            text: 'Su reserva ha sido guardada correctamente.',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Ok'
-          });
+      (data) => {
+        Swal.fire({
+          title: 'Reserva Exitosa',
+          text: 'Su reserva ha sido realizada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
       },
       (error) => {
-        console.error('Error al guardar los datos:', error);
-          Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema al guardar la reserva.',
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Cerrar'
-          });
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'Cerrar'
+        });
+        console.error('Error al guardar la selección:', error);
       }
     );
   }
@@ -161,7 +161,6 @@ export class FormRestauranteComponent {
 
     this.guardarSeleccion(productosSeleccionados);
 
-    this.guardarSeleccion(productosSeleccionados)
   }
 
   // Método para recibir las entradas seleccionadas desde EntradasComponent

@@ -12,11 +12,8 @@ export class MostrarPedidoComponent {
   dataCliente:any;
   allProducts:any;
 
-  
-
   ngOnInit(){
     this.dataCliente = this.data.getData()
     this.allProducts = this.data.getAllProducts()
-    console.log(this.allProducts)
   }
 }

@@ -42,3 +42,7 @@ button.cancel-button:hover {
 button:active {
     transform: scale(1);
 }
+
+button.swal2-confirm.btn.btn-success {
+    margin-left: 1em;
+}

@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConsultarPedidoService {
-
-  
   
   baseUrl = 'http://localhost:4000/api/pedidos'
   cedula = 0
@@ -18,7 +16,7 @@ export class ConsultarPedidoService {
 
   obtenerPedidosCliente(cedula:string){
     return this.http.get(`${this.baseUrl}/${cedula}`)
-  }
+   }
 
   setClient(data: any){
     this.data = data
