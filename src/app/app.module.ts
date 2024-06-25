@@ -23,6 +23,7 @@ import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/e
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
 import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/buttons-consulta.component';
+import { DatosReservaComponent } from './pages/servicios/main-data/datos-reserva/datos-reserva.component';
 
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
@@ -54,7 +55,8 @@ import { PhotosComponent } from './pages/nosotros/photos/photos.component';
     PhotosComponent,
     ConsultaComponent,
     MostrarPedidoComponent,
-    ButtonsConsultaComponent
+    ButtonsConsultaComponent,
+    DatosReservaComponent
   ],
   imports: [
     BrowserModule,

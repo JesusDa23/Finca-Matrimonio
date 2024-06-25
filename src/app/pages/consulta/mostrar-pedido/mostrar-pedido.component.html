@@ -15,15 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let cliente of dataCliente">
-          <td>{{ cliente.nombre }}</td>
-          <td>{{ cliente.cedula }}</td>
-          <td>{{ cliente.email }}</td>
-          <td>{{ cliente.telefono }}</td>
-          <td>{{ cliente.fechaReserva }}</td>
-          <td>{{ cliente.horaLlegada }}</td>
-          <td>{{ cliente.cantidadPersonas }}</td>
-          <td>{{ cliente.estado }}</td>
+        <tr>
+          <td>{{ dataCliente.nombre }}</td>
+          <td>{{ dataCliente.cedula }}</td>
+          <td>{{ dataCliente.email }}</td>
+          <td>{{ dataCliente.telefono }}</td>
+          <td>{{ dataReserva.fechaReserva }}</td>
+          <td>{{ dataReserva.horaLlegada }}</td>
+          <td>{{ dataReserva.cantidadPersonas }}</td>
+          <td>{{ dataReserva.estado }}</td>
         </tr>
       </tbody>
     </table>
@@ -42,9 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let producto of allProducts">
-          <td>{{ producto.name }}</td>
-          <td>{{ producto.price }}</td>
+        <tr *ngFor="let producto of dataPedido.productos">
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.precio }}</td>
           <td>{{ producto.cantidad }}</td>
         </tr>
       </tbody>

@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, Input } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
 import { CompartiCedulaService } from '../Services/compartirCedula.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -16,10 +17,11 @@ export class FormRestauranteComponent {
   bebidas: any[] = [];
   entradasSeleccionadas: any[] = []; // Arreglo para almacenar las entradas seleccionadas
 
+  @Input() mostrarBtnTotal: boolean = true
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  constructor(private obtenerMenuService: ObtenerMenuService, private sharedDataService: CompartiCedulaService) {}
+  constructor(private obtenerMenuService: ObtenerMenuService, private router: Router) {}
 
   ngOnInit() {
     this.obtenerMenuService.getMenu().subscribe((data) => {
@@ -64,52 +66,34 @@ export class FormRestauranteComponent {
   }
 
   guardarSeleccion(productosSeleccionados: any[]) {
-    const cedulaReserva = this.sharedDataService.getCedula();
-    const nombreReserva = this.sharedDataService.getName();
-    const telefonoReserva = this.sharedDataService.getTelefono();
-    const cantidad = this.sharedDataService.getCantidad();
-    const fechaReserva = this.sharedDataService.getFecha();
-    const horaLlegada = this.sharedDataService.getHora();
-    const emailCliente = this.sharedDataService.getEmail();
-    // Guardar la selección con los productos seleccionados recibidos como argumento
-    
-    const cliente = [{
-      cedula: cedulaReserva,
-      nombre: nombreReserva,
-      telefono: telefonoReserva,
-      cantidadPersonas: cantidad,
-      fechaReserva: fechaReserva,
-      horaLlegada: horaLlegada,
-      email: emailCliente
-    }]
 
-    const seleccion = {
+    const pedido = {
       productos: productosSeleccionados,
       total: this.sumarPrecios(),
-      cliente: cliente
-    };
+      cedula: localStorage.getItem('cedula')
+    }
 
 
-
-    this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
-      (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: '¡Reserva Exitosa!',
-            text: 'Su reserva ha sido guardada correctamente.',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Ok'
-          });
+    this.obtenerMenuService.guardarSeleccion(pedido).subscribe(
+      (data) => {
+        Swal.fire({
+          title: 'Reserva Exitosa',
+          text: 'Su reserva ha sido realizada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        localStorage.removeItem('cedula')
+        this.router.navigate(['/servicios'])
       },
       (error) => {
-        console.error('Error al guardar los datos:', error);
-          Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema al guardar la reserva.',
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Cerrar'
-          });
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'Cerrar'
+        });
+        console.error('Error al guardar la selección:', error);
       }
     );
   }
@@ -117,16 +101,16 @@ export class FormRestauranteComponent {
   obtenerProductosSeleccionados() {
     return [
       ...this.platos.filter(plato => plato.cantidad > 0).map(plato => ({
-        name: plato.name,
-        price: plato.price,
+        nombre: plato.name,
+        precio: plato.price,
         cantidad: plato.cantidad,
-        type: 'plato'
+        tipo: 'plato'
       })),
       ...this.bebidas.filter(bebida => bebida.cantidad > 0).map(bebida => ({
-        name: bebida.name,
-        price: bebida.price,
+        nombre: bebida.name,
+        precio: bebida.price,
         cantidad: bebida.cantidad,
-        type: 'bebida'
+        tipo: 'bebida'
       })),
       ...this.entradasSeleccionadas
     ];
@@ -161,7 +145,6 @@ export class FormRestauranteComponent {
 
     this.guardarSeleccion(productosSeleccionados);
 
-    this.guardarSeleccion(productosSeleccionados)
   }
 
   // Método para recibir las entradas seleccionadas desde EntradasComponent
