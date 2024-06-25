@@ -23,6 +23,7 @@ import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/e
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
 import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/buttons-consulta.component';
+import { DatosReservaComponent } from './pages/servicios/main-data/datos-reserva/datos-reserva.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/butt
     EntradasComponent,
     ConsultaComponent,
     MostrarPedidoComponent,
-    ButtonsConsultaComponent
+    ButtonsConsultaComponent,
+    DatosReservaComponent
   ],
   imports: [
     BrowserModule,

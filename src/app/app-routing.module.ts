@@ -10,6 +10,7 @@ import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/e
 import { PlatosComponent } from './pages/servicios/form-restaurante/platos/platos.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
+import { DatosReservaComponent } from './pages/servicios/main-data/datos-reserva/datos-reserva.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'servicios', component: ServiciosComponent},
   {path:'main-data', component: MainDataComponent},
+  {path:'reservas', component: DatosReservaComponent},
 
   {path:'restaurante', component: FormRestauranteComponent},
   {path:'eventos', component: FormEventosComponent},

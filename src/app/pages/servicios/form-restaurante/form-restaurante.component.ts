@@ -81,7 +81,7 @@ export class FormRestauranteComponent {
       cantidadPersonas: cantidad,
       fechaReserva: fechaReserva,
       horaLlegada: horaLlegada,
-      email: emailCliente
+      email: emailCliente,
     }]
 
     const seleccion = {

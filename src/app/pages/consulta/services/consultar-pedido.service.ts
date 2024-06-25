@@ -18,6 +18,7 @@ export class ConsultarPedidoService {
     return this.http.get(`${this.baseUrl}/${cedula}`)
    }
 
+   
   setClient(data: any){
     this.data = data
   }

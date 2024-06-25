@@ -20,9 +20,12 @@ export class ConsultaComponent {
   })
   
   enviarConsulta(){
+    this.dataPedido = undefined
    this.consultaService.obtenerPedidosCliente(this.numeroIdentificacion.get('cedula')?.value).subscribe(data => {
 
     this.dataPedido = data
+
+
     this.consultaService.setClient(this.dataPedido.data.cliente)
     this.consultaService.setProductsData(this.dataPedido.data.productos)
 

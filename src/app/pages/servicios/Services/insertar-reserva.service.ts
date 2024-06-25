@@ -12,6 +12,10 @@ export class InsertarReservaService {
 
   constructor(private http: HttpClient) { }
 
+  insertarCliente(nuevaCliente:any): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}/cliente`, nuevaCliente)
+  }
+
   insertarReserva(nuevaReserva:any): Observable<any>{
     return this.http.post<any>(`${this.baseUrl}/reservas`, nuevaReserva)
   }
