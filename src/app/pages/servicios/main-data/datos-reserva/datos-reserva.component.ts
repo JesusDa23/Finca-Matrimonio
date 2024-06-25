@@ -12,12 +12,14 @@ export class DatosReservaComponent {
   
   constructor( private formBuilder: FormBuilder, private reservaService: InsertarReservaService, private router: Router){}
 
+  cedulaCliente = localStorage.getItem('cedula')
 
   datosReserva: FormGroup = this.formBuilder.group({
     fechaReserva: ['', [Validators.required]],
     horaLlegada: ['', [Validators.required]],
     cantidadPersonas: ['', [Validators.required, Validators.min(1)]],
-    estado: ['', [Validators.required]]
+    estado: ['', [Validators.required]],
+    cedula: this.cedulaCliente
   })
 
 

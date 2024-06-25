@@ -20,21 +20,40 @@ export class ConsultaComponent {
   })
   
   enviarConsulta(){
-    this.dataPedido = undefined
-   this.consultaService.obtenerPedidosCliente(this.numeroIdentificacion.get('cedula')?.value).subscribe(data => {
 
-    this.dataPedido = data
+  localStorage.setItem('cedula', this.numeroIdentificacion.value.cedula )
 
+  this.consultaService.obtenerDatosCliente(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataCliente => {
 
-    this.consultaService.setClient(this.dataPedido.data.cliente)
-    this.consultaService.setProductsData(this.dataPedido.data.productos)
-
-    console.log(this.dataPedido)
-    this.router.navigate(['/mostrar'])
-    localStorage.setItem(this.numeroIdentificacion.get('cedula')?.value, 'cedula')
-
-
-
+    if (dataCliente.data !== null){
+      this.consultaService.setCliente(dataCliente.data)
+      this.consultaService.obtenerDatosReserva(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataReserva => {
+        this.consultaService.setReserva(dataReserva.data)
+      })
+    
+      this.consultaService.obtenerDatosPedidos(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataPedido => {
+        this.consultaService.setPedido(dataPedido.data)
+        this.router.navigate(['/mostrar'])
+      })
+    
+    }else {
+      Swal.fire({
+        icon: 'info',
+        title: 'No tiene reservas disponibles',
+        html: '¿Desea realizar una nueva reserva? <a href="/servicios" class="alert-link">Click aquí</a>',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',})
+    }
   })
+
+
+
+
+
 }
+
+
 }

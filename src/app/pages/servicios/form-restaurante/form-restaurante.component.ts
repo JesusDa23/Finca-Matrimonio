@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
 import { CompartiCedulaService } from '../Services/compartirCedula.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -20,7 +21,7 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  constructor(private obtenerMenuService: ObtenerMenuService, private sharedDataService: CompartiCedulaService) {}
+  constructor(private obtenerMenuService: ObtenerMenuService, private router: Router) {}
 
   ngOnInit() {
     this.obtenerMenuService.getMenu().subscribe((data) => {
@@ -65,34 +66,15 @@ export class FormRestauranteComponent {
   }
 
   guardarSeleccion(productosSeleccionados: any[]) {
-    const cedulaReserva = this.sharedDataService.getCedula();
-    const nombreReserva = this.sharedDataService.getName();
-    const telefonoReserva = this.sharedDataService.getTelefono();
-    const cantidad = this.sharedDataService.getCantidad();
-    const fechaReserva = this.sharedDataService.getFecha();
-    const horaLlegada = this.sharedDataService.getHora();
-    const emailCliente = this.sharedDataService.getEmail();
-    // Guardar la selección con los productos seleccionados recibidos como argumento
-    
-    const cliente = [{
-      cedula: cedulaReserva,
-      nombre: nombreReserva,
-      telefono: telefonoReserva,
-      cantidadPersonas: cantidad,
-      fechaReserva: fechaReserva,
-      horaLlegada: horaLlegada,
-      email: emailCliente,
-    }]
 
-    const seleccion = {
+    const pedido = {
       productos: productosSeleccionados,
       total: this.sumarPrecios(),
-      cliente: cliente
-    };
+      cedula: localStorage.getItem('cedula')
+    }
 
 
-
-    this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
+    this.obtenerMenuService.guardarSeleccion(pedido).subscribe(
       (data) => {
         Swal.fire({
           title: 'Reserva Exitosa',
@@ -100,6 +82,8 @@ export class FormRestauranteComponent {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
+        localStorage.removeItem('cedula')
+        this.router.navigate(['/servicios'])
       },
       (error) => {
         Swal.fire({
@@ -117,16 +101,16 @@ export class FormRestauranteComponent {
   obtenerProductosSeleccionados() {
     return [
       ...this.platos.filter(plato => plato.cantidad > 0).map(plato => ({
-        name: plato.name,
-        price: plato.price,
+        nombre: plato.name,
+        precio: plato.price,
         cantidad: plato.cantidad,
-        type: 'plato'
+        tipo: 'plato'
       })),
       ...this.bebidas.filter(bebida => bebida.cantidad > 0).map(bebida => ({
-        name: bebida.name,
-        price: bebida.price,
+        nombre: bebida.name,
+        precio: bebida.price,
         cantidad: bebida.cantidad,
-        type: 'bebida'
+        tipo: 'bebida'
       })),
       ...this.entradasSeleccionadas
     ];

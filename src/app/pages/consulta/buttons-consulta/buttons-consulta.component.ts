@@ -36,6 +36,9 @@ export class ButtonsConsultaComponent {
       if (result.isConfirmed) {
 
         this.cancelarService.cancelarReserva(this.cedula).subscribe( data => console.log(data));
+        this.cancelarService.cancelarrPedido(this.cedula).subscribe( data => console.log(data));
+        this.cancelarService.cancelarCliente(this.cedula).subscribe( data => console.log(data));
+        localStorage.removeItem('cedula')
 
         swalWithBootstrapButtons.fire({
           title: "Reserva Cancelada!",

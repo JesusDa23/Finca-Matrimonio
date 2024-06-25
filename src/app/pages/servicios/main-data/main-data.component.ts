@@ -4,6 +4,7 @@ import { InsertarReservaService } from '../Services/insertar-reserva.service';
 import { CardServiceComponent } from '../card-service/card-service.component';
 import { Router } from '@angular/router';
 import { CompartiCedulaService } from '../Services/compartirCedula.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-main-data',
@@ -32,23 +33,35 @@ export class MainDataComponent {
 
 
   
-  enviarReserva (): void {  
-    
-    if(this.mainData.valid  !== null ){
-      // this.sharedDataService.setCedula(this.mainData.get('cedula')?.value); 
-      // this.sharedDataService.setName(this.mainData.get('nombre')?.value);
-      // this.sharedDataService.setTelefono(this.mainData.get('telefono')?.value);
-      // this.sharedDataService.setPersonas(this.mainData.get('cantidadPersonas')?.value)
-      // this.sharedDataService.setFecha(this.mainData.get('fechaReserva')?.value);
-      // this.sharedDataService.setHora(this.mainData.get('horaLlegada')?.value)
-      // this.sharedDataService.setEmail(this.mainData.get('email')?.value)
-
-      this.reservaService.insertarCliente(this.mainData.value).subscribe( response => {
-      })
-
-    }
+  enviarReserva (): void {
+    if (this.mainData.valid !== null) {
+      if (this.mainData.valid) {
+          this.reservaService.insertarCliente(this.mainData.value).subscribe(
+              response => {
+                  if (response.ok) {
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Datos guardados',
+                          text: 'La reserva ha sido guardada exitosamente.'
+                      }).then(() => {
+                          localStorage.setItem( 'cedula', this.mainData.value.cedula )
+                          this.router.navigate(['reservas']);
+                      });
+                  } else {
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Error',
+                          text: 'Hubo un problema al guardar la reserva. Por favor, inténtelo de nuevo.'
+                      });
+                  }
+              }
+          );
+      } else {
+          Swal.fire({
+              icon: 'error',
+              title: 'Formulario inválido',
+              text: 'Por favor, revise los datos ingresados.'
+          });
+      }
   }
-
-
- 
- }
+}}

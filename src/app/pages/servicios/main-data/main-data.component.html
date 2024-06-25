@@ -43,25 +43,13 @@
 
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-    <button (click)="enviarReserva()" class="btn btn-primary" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDatosReserva">Continuar</button>
+    <button type="button"  (click)="enviarReserva()" [disabled]="mainData.invalid" class="btn btn-primary" data-bs-dismiss="modal"  >Continuar</button>
+
   </div>
 </form>
 
 
 
-<div class="modal" id="modalDatosReserva" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="title-modal-mine" class="modal-title fs-5" id="exampleModalLabel">Datos Personales</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">  
-        <app-datos-reserva></app-datos-reserva>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

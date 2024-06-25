@@ -1,4 +1,4 @@
-  <form [formGroup]="datosReserva" (ngSubmit)="enviarReserva()">
+  <form [formGroup]="datosReserva" (ngSubmit)="enviarReserva()" class="form-container">
     <div class="field">
     <label for="fechaReserva">Selecciona la fecha de tu reserva:</label>
     <input type="date" id="fechaReserva" class="form-control" formControlName="fechaReserva">
@@ -31,8 +31,8 @@
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Continuar</button>
+        <button type="button">Cerrar</button>
+        <button type="submit" >Continuar</button>
     </div>
 </form>
 
