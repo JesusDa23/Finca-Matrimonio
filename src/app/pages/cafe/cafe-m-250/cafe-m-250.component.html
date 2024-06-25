@@ -1,1 +1,19 @@
-<p>cafe-m-250 works!</p>
+<body>
+    <app-encabezado></app-encabezado>
+    <app-presentacion [title]="dataCard.title" [description]="dataCard.description" [image]="dataCard.urlImage"></app-presentacion>
+    
+    <div class="container">
+        <div class="cardService" *ngFor="let service of cafe; let i = index">
+            <div class="card" style="width: 22rem">
+              <img [src]="service.img" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">{{service.title}}</h5>
+                <p class="card-text">
+                  {{service.description}}
+                </p>
+                <a class="btn btn-primary" (click)="navegarRutas(i)" >{{service.btnText}}</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</body>

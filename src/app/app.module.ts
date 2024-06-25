@@ -19,6 +19,7 @@ import { CafeComponent } from './pages/cafe/cafe.component';
 import { CafeM250Component } from './pages/cafe/cafe-m-250/cafe-m-250.component';
 import { CafeM500Component } from './pages/cafe/cafe-m-500/cafe-m-500.component';
 import { CafeT500Component } from './pages/cafe/cafe-t-500/cafe-t-500.component';
+import { PresentacionComponent } from './pages/cafe/presentacion/presentacion.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CafeT500Component } from './pages/cafe/cafe-t-500/cafe-t-500.component'
     CafeComponent,
     CafeM250Component,
     CafeM500Component,
-    CafeT500Component
+    CafeT500Component,
+    PresentacionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+body{
+    background-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0.5)),
+    url(../../../../assets/imagenes/cafe-fondo.png);
+  }
