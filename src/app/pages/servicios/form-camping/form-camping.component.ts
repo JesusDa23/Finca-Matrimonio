@@ -18,7 +18,6 @@ export class FormCampingComponent {
 
   datosCamping:any;
   data:any;
-  data2:any
 
   campingParejas: number = 0
   campingFamiliar: number = 0
@@ -66,4 +65,10 @@ export class FormCampingComponent {
       this.totalPagar = this.total + this.campingFamiliar
     }
   }
+
+  enviarPedidoCamping(){
+
+  }
 }
+
+

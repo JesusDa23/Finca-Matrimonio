@@ -20,8 +20,6 @@
               <p  class="card-text">{{dato.precio}}</p>
               <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" (click)="mostrarPrecioPareja(i)">Reservar</button>
             </div>
-
-
         </div>
     </div>
 
@@ -38,7 +36,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="fas fa-credit-card mr-2"></i> Pagar</button>
+        <button type="button" class="btn btn-success"><i class="fas fa-credit-card mr-2" (click)="enviarPedidoCamping()"></i> Pagar</button>
       </div>
     </div>
   </div>
