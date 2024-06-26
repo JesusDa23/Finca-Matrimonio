@@ -1,6 +1,8 @@
 <!-- <h2>Nuestro menú</h2> -->
 <div class="menu">
-  <app-platos
+
+  <div class="container-menu">
+    <app-platos
     [platos]="platos"
     (incrementarCantidad)="incrementar($event)"
     (decrementarCantidad)="decrementar($event)"
@@ -11,8 +13,11 @@
     (incrementarCantidad)="incrementar($event + platos.length)"
     (decrementarCantidad)="decrementar($event + platos.length)"
   ></app-bebidas>
+  </div>
 
-  <div class="btn total">
+
+
+  <div *ngIf="mostrarBtnTotal" class="btn total">
     <div class="total-container">
       <p class="total-label">Total:</p>
       <p class="total-amount">{{ sumarPrecios() }}</p>

@@ -1,3 +1,10 @@
+.fondo {
+  background-image: linear-gradient(
+  rgb(255, 255, 255),
+  rgba(255, 255, 255, 0.5)),
+  url('../../../../assets/imagenes/fondo3.png');
+}
+
 .container {
     max-width: 85em;
     margin: 20px auto;
@@ -16,6 +23,10 @@
     color: #333333;
   }
 
+  h3 {
+    display: flex;
+    justify-content: center;
+}
   
   .table {
     width: 100%;
@@ -54,6 +65,8 @@
   
   .error {
     color: red;
+    height: 1.4em;
     font-size: 0.9em;
+    margin-left: 1em;
   }
   

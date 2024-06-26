@@ -8,6 +8,7 @@ form {
     font-weight: bold;
     font-size: 23px;
     margin-bottom: 1em;
+    font-family: 'Reboto-Bold';
 }
 
 textarea#exampleFormControlTextarea1 {
@@ -32,7 +33,8 @@ textarea#exampleFormControlTextarea1 {
 }
 
 .total-label {
-    margin-left: .5em;
+  font-family: 'Reboto-Regular';
+  margin-left: .5em;
   margin-right: 10px; /* Espacio entre total y monto */
   margin-bottom: 0em;
   font-weight: bold;
@@ -40,6 +42,7 @@ textarea#exampleFormControlTextarea1 {
 }
 
 .total-amount {
+  font-family: 'Reboto-Regular';
   font-weight: bold;
   color: #007bff; /* Color del monto */
   margin-bottom: 0em;
