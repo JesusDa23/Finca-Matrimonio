@@ -1,7 +1,7 @@
-<form (submit)="onFormSubmit($event)">
+<form (submit)="onFormSubmit($event)" [formGroup]="datosEventos">
     <p class="title-event">¿Cómo te gustaría que sea tu evento?</p>
     <div class="mb-3">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe aquí cómo quieres tu evento (cumpleaños, graduación, boda, etc.)"></textarea>
+        <textarea formControlName="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe aquí cómo quieres tu evento (cumpleaños, graduación, boda, etc.)"></textarea>
     </div>
 
     <div class="mb-3">

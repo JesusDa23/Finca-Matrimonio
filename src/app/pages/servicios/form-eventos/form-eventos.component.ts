@@ -3,6 +3,8 @@ import { FormRestauranteComponent } from '../form-restaurante/form-restaurante.c
 import { EntradasComponent } from '../form-restaurante/entradas/entradas.component';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventosService } from './services/eventos.service';
 
 @Component({
   selector: 'app-form-eventos',
@@ -14,12 +16,16 @@ export class FormEventosComponent {
   totalEntradas: number = 0;
   productosSeleccionados: any[] = []; // Array para almacenar todos los productos seleccionados
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private eventoService: EventosService) {
     
   }
 
   @ViewChild(FormRestauranteComponent) formRestaurante!: FormRestauranteComponent;
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
+
+  datosEventos: FormGroup = this.formBuilder.group({
+    descripcion: ['', [Validators.required]],
+  })
 
   actualizarTotalComida(total: number) {
     this.totalComida = total;
@@ -42,6 +48,7 @@ export class FormEventosComponent {
   }
 
   onPagar() {
+
     if (this.productosSeleccionados.length === 0) {
       Swal.fire({
         icon: 'error',
@@ -52,6 +59,9 @@ export class FormEventosComponent {
       });
       return;
     }
+
+    const descripcion = this.datosEventos.get('descripcion')?.value;
+    this.eventoService.setDescripcion(descripcion);
 
     this.formRestaurante.guardarSeleccion(this.productosSeleccionados);
 

@@ -25,7 +25,6 @@ export class DatosReservaComponent {
 
   enviarReserva(){
     this.reservaService.insertarReserva(this.datosReserva.value).subscribe( data => {
-      console.log(data);
     })
 
     this.mostrarOtroForm()

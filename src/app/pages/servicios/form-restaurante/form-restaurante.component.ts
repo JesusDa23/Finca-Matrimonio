@@ -5,6 +5,7 @@ import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
 import { CompartiCedulaService } from '../Services/compartirCedula.service';
 import { Router } from '@angular/router';
+import { EventosService } from '../form-eventos/services/eventos.service';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -21,7 +22,12 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  constructor(private obtenerMenuService: ObtenerMenuService, private router: Router) {}
+  constructor(
+    private obtenerMenuService: ObtenerMenuService, 
+    private router: Router, 
+    private eventoService: EventosService,
+    private entradasService: EntradasService
+  ) {}
 
   ngOnInit() {
     this.obtenerMenuService.getMenu().subscribe((data) => {
@@ -61,16 +67,17 @@ export class FormRestauranteComponent {
     let total = 0;
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
-    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionadas
     return total;
+
   }
 
   guardarSeleccion(productosSeleccionados: any[]) {
 
     const pedido = {
       productos: productosSeleccionados,
-      total: this.sumarPrecios(),
-      cedula: localStorage.getItem('cedula')
+      total: this.sumarPrecios() + this.entradasService.getTotal() ,
+      cedula: localStorage.getItem('cedula'),
+      descripcion: this.eventoService.getDescripcion() 
     }
 
 
@@ -84,6 +91,7 @@ export class FormRestauranteComponent {
         });
         localStorage.removeItem('cedula')
         this.router.navigate(['/servicios'])
+
       },
       (error) => {
         Swal.fire({
