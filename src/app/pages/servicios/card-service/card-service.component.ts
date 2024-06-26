@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InsertarReservaService } from '../Services/insertar-reserva.service';
+import { CompartiCedulaService } from '../Services/compartirCedula.service';
 
 @Component({
   selector: 'app-card-service',
@@ -7,6 +8,8 @@ import { InsertarReservaService } from '../Services/insertar-reserva.service';
   styleUrl: './card-service.component.css'
 })
 export class CardServiceComponent {
+
+  tipodeServicioCards: string = ''
 
   services = [
     {
@@ -32,7 +35,8 @@ export class CardServiceComponent {
     }
   ]
 
-  constructor(private insertarReservaService: InsertarReservaService) {}
+
+  constructor(private insertarReservaService: InsertarReservaService, private compartirNombreServicio: CompartiCedulaService) {}
 
   recogerId(id: number): void {
     this.insertarReservaService.idCard(id);

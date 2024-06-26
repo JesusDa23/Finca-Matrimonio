@@ -13,7 +13,7 @@ export class EntradasComponent {
 
   @Output() actualizarTotal = new EventEmitter<{ productos: any[], total: number }>(); // Emitir objeto con productos y total
 
-  constructor(private menuService: ObtenerMenuService) {}
+  constructor(private menuService: ObtenerMenuService, private entradasService: EntradasService) {}
 
   ngOnInit() {
     this.menuService.getMenu().subscribe((data) => {
@@ -41,21 +41,22 @@ export class EntradasComponent {
     // Crear el objeto con la información detallada de las entradas y el total
     const infoEntradas = {
       productos: entradasSeleccionadas.map(entrada => ({
-        name: entrada.name,
-        price: entrada.price,
+        nombre: entrada.name,
+        precio: entrada.price,
         cantidad: entrada.cantidad,
         type: 'entrada' // Agregar el tipo para identificarlo como entrada
       })),
       total: totalEntradas
     };
-
+    
+    this.entradasService.setTotal(totalEntradas)
     this.actualizarTotal.emit(infoEntradas); // Emitir el evento con la información actualizada
   }
 
   obtenerProductosSeleccionados() {
     return this.entradas.filter(entrada => entrada.cantidad > 0).map(entrada => ({
-      name: entrada.name,
-      price: entrada.price,
+      nombre: entrada.name,
+      precio: entrada.price,
       cantidad: entrada.cantidad,
       type: 'entrada'
     }));

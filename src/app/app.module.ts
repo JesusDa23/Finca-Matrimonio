@@ -22,6 +22,8 @@ import { TotalPagoComponent } from './pages/servicios/form-restaurante/total-pag
 import { EntradasComponent } from './pages/servicios/form-restaurante/entradas/entradas.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
+import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/buttons-consulta.component';
+import { DatosReservaComponent } from './pages/servicios/main-data/datos-reserva/datos-reserva.component';
 
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
@@ -54,7 +56,9 @@ import { ContenidoModalComponent } from './pages/servicios/form-camping/contenid
     PhotosComponent,
     ConsultaComponent,
     MostrarPedidoComponent,
-    ContenidoModalComponent
+    ContenidoModalComponent,
+    ButtonsConsultaComponent,
+    DatosReservaComponent
   ],
   imports: [
     BrowserModule,

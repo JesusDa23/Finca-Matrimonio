@@ -1,12 +1,10 @@
-/*pie de pagina footer*/
-footer {
-  font-family: 'Poppins Regular';
-}
 
 .testimonios {
     background-color: black;
     gap: 1rem;
     color: white;
+
+
   }
 
   img.imglogo1 {
@@ -24,6 +22,8 @@ footer {
     display: flex;
     justify-content: center;
     font-size: 2em;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
   }
   
   .testimonios__title {
@@ -94,6 +94,8 @@ footer {
     display: flex;
     justify-content: center;
     font-size: 1.3em;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
   }
   
   li.menu-social-item{
@@ -128,7 +130,12 @@ footer {
   
   p.titulo-footer {
     font-size: 1.3em;
-    font-weight: 500;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
+  }
+
+  .contenido-footer {
+    font-family: 'Reboto-Regular';
   }
   
   @media ( max-width: 576px ) {

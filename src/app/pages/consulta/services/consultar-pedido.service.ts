@@ -5,38 +5,61 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConsultarPedidoService {
+  
+  baseUrl = 'http://localhost:4000/api'
 
   
-  
-  baseUrl = 'http://localhost:4000/api/pedidos'
-  cedula = 0
-  data:any;
-  allProducts: any;
+  datosDelCliente: any;
+  datosDeReserva: any;
+  datosDePedido: any
     
   constructor(private http: HttpClient) {
    }
 
-  obtenerPedidosCliente(cedula:string){
-    return this.http.get(`${this.baseUrl}/${cedula}`)
+  obtenerDatosCliente(cedula:string){
+    return this.http.get<any>(`${this.baseUrl}/cliente/${cedula}`)
+   }
+
+
+  obtenerDatosReserva(cedula:string){
+    return this.http.get<any>(`${this.baseUrl}/reservas/${cedula}`)
+  }
+    
+  obtenerDatosPedidos(cedula:string){
+    return this.http.get<any>(`${this.baseUrl}/pedidos/${cedula}`)
   }
 
-  setClient(data: any){
-    this.data = data
-  }
-
-  setProductsData(alldataProducto: any){
-    this.allProducts = alldataProducto
-  }
 
 
 
-  getData():any{
-    return this.data
-  }
+   setCliente(datosCliente: any){ 
+    this.datosDelCliente = datosCliente
+   }
 
-  getAllProducts():any{
-    return this.allProducts
-  }
+   getCliente(){
+    return this.datosDelCliente
+   }
+
+
+   setReserva(datosReserva: any){ 
+    this.datosDeReserva = datosReserva
+   }
+
+   getReserva(){
+    return this.datosDeReserva
+   }
+
+
+
+
+   setPedido(datosPedido: any){ 
+    this.datosDePedido = datosPedido
+   }
+
+   getPedido(){
+    return this.datosDePedido
+   }
+
 
   
 }

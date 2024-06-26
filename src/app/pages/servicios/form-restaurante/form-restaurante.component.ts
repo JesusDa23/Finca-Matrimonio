@@ -1,9 +1,12 @@
-import { Component, EventEmitter, Input, Output, ViewChild, input } from '@angular/core';
+
+import { Component, EventEmitter, Output, ViewChild, Input } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
 import { CompartiCedulaService } from '../Services/compartirCedula.service';
+import { Router } from '@angular/router';
+import { EventosService } from '../form-eventos/services/eventos.service';
 
 @Component({
   selector: 'app-form-restaurante',
@@ -14,18 +17,19 @@ export class FormRestauranteComponent {
   menu: any[] = [];
   platos: any[] = [];
   bebidas: any[] = [];
-  entradasSeleccionadas: any[] = []; // Arreglo para almacenar las entradas seleccionadas
-
+  entradasSeleccionadas: any[] = [];
+  // Arreglo para almacenar las entradas seleccionadas
   @Input() mostrarBotonTotal: boolean = true
-
+  @Output() saldoRestaurante = new EventEmitter<any>();
+  @Input() mostrarBtnTotal: boolean = true
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  @Output() saldoRestaurante = new EventEmitter<any>();
-
   constructor(
     private obtenerMenuService: ObtenerMenuService,
-    private sharedDataService: CompartiCedulaService
+    private router: Router,
+    private eventoService: EventosService,
+    private entradasService: EntradasService
   ) {}
 
   ngOnInit() {
@@ -64,59 +68,41 @@ export class FormRestauranteComponent {
     let total = 0;
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
-    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionada
-
-    this.saldoRestaurante.emit(total)
     return total;
+
   }
 
   guardarSeleccion(productosSeleccionados: any[]) {
-    const cedulaReserva = this.sharedDataService.getCedula();
-    const nombreReserva = this.sharedDataService.getName();
-    const telefonoReserva = this.sharedDataService.getTelefono();
-    const cantidad = this.sharedDataService.getCantidad();
-    const fechaReserva = this.sharedDataService.getFecha();
-    const horaLlegada = this.sharedDataService.getHora();
-    const emailCliente = this.sharedDataService.getEmail();
-    // Guardar la selección con los productos seleccionados recibidos como argumento
 
-    const cliente = [{
-      cedula: cedulaReserva,
-      nombre: nombreReserva,
-      telefono: telefonoReserva,
-      cantidadPersonas: cantidad,
-      fechaReserva: fechaReserva,
-      horaLlegada: horaLlegada,
-      email: emailCliente
-    }]
-
-    const seleccion = {
+    const pedido = {
       productos: productosSeleccionados,
-      total: this.sumarPrecios(),
-      cliente: cliente
-    };
+      total: this.sumarPrecios() + this.entradasService.getTotal() ,
+      cedula: localStorage.getItem('cedula'),
+      descripcion: this.eventoService.getDescripcion()
+    }
 
 
+    this.obtenerMenuService.guardarSeleccion(pedido).subscribe(
+      (data) => {
+        Swal.fire({
+          title: 'Reserva Exitosa',
+          text: 'Su reserva ha sido realizada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        localStorage.removeItem('cedula')
+        this.router.navigate(['/servicios'])
 
-    this.obtenerMenuService.guardarSeleccion(seleccion).subscribe(
-      (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: '¡Reserva Exitosa!',
-            text: 'Su reserva ha sido guardada correctamente.',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Ok'
-          });
       },
       (error) => {
-        console.error('Error al guardar los datos:', error);
-          Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema al guardar la reserva.',
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Cerrar'
-          });
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'Cerrar'
+        });
+        console.error('Error al guardar la selección:', error);
       }
     );
   }
@@ -124,16 +110,16 @@ export class FormRestauranteComponent {
   obtenerProductosSeleccionados() {
     return [
       ...this.platos.filter(plato => plato.cantidad > 0).map(plato => ({
-        name: plato.name,
-        price: plato.price,
+        nombre: plato.name,
+        precio: plato.price,
         cantidad: plato.cantidad,
-        type: 'plato'
+        tipo: 'plato'
       })),
       ...this.bebidas.filter(bebida => bebida.cantidad > 0).map(bebida => ({
-        name: bebida.name,
-        price: bebida.price,
+        nombre: bebida.name,
+        precio: bebida.price,
         cantidad: bebida.cantidad,
-        type: 'bebida'
+        tipo: 'bebida'
       })),
       ...this.entradasSeleccionadas
     ];
@@ -154,7 +140,20 @@ export class FormRestauranteComponent {
   onPagar2(){
     const productosRestaurante = this.obtenerProductosSeleccionados();
     const productosSeleccionados = [...productosRestaurante ];
-    this.guardarSeleccion(productosSeleccionados)
+
+    if (productosSeleccionados.length === 0) {
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: 'Debe seleccionar al menos un producto antes de pagar.',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Cerrar'
+      });
+      return;
+    }
+
+    this.guardarSeleccion(productosSeleccionados);
+
   }
 
   // Método para recibir las entradas seleccionadas desde EntradasComponent

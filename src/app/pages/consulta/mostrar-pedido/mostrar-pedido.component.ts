@@ -10,13 +10,14 @@ export class MostrarPedidoComponent {
 
   constructor(private data: ConsultarPedidoService){}
   dataCliente:any;
-  allProducts:any;
-
-  
+  dataReserva:any;
+  dataPedido: any;
 
   ngOnInit(){
-    this.dataCliente = this.data.getData()
-    this.allProducts = this.data.getAllProducts()
-    console.log(this.allProducts)
+    this.dataCliente = this.data.getCliente()
+    this.dataReserva = this.data.getReserva()
+    this.dataPedido = this.data.getPedido()
+
+    console.log(this.dataPedido)
   }
 }
