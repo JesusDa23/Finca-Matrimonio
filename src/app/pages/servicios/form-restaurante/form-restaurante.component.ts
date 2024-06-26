@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, input } from '@angular/core';
 import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
@@ -19,7 +19,12 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-  constructor(private obtenerMenuService: ObtenerMenuService, private sharedDataService: CompartiCedulaService) {}
+  @Output() saldoRestaurante = new EventEmitter<any>();
+
+  constructor(
+    private obtenerMenuService: ObtenerMenuService,
+    private sharedDataService: CompartiCedulaService
+  ) {}
 
   ngOnInit() {
     this.obtenerMenuService.getMenu().subscribe((data) => {
@@ -57,7 +62,9 @@ export class FormRestauranteComponent {
     let total = 0;
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
-    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionadas
+    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionada  
+
+    this.saldoRestaurante.emit(total)
     return total;
   }
 

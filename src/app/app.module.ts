@@ -27,6 +27,7 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
 import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
 import { PhotosComponent } from './pages/nosotros/photos/photos.component';
+import { ContenidoModalComponent } from './pages/servicios/form-camping/contenido-modal/contenido-modal.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { PhotosComponent } from './pages/nosotros/photos/photos.component';
     ParagraphComponent,
     PhotosComponent,
     ConsultaComponent,
-    MostrarPedidoComponent
+    MostrarPedidoComponent,
+    ContenidoModalComponent
   ],
   imports: [
     BrowserModule,
