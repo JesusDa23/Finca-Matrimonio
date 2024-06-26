@@ -17,7 +17,7 @@
       <p class="total-label">Total:</p>
       <p class="total-amount">{{ sumarPrecios() }}</p>
     </div>
-    <button class="button" class="btn btn-success" (click)="onPagar2()">
+    <button *ngIf="mostrarBotonTotal" class="button" class="btn btn-success" (click)="onPagar2()">
         <i class="fas fa-credit-card mr-2"></i> Pagar!</button>
   </div>
 </div>

@@ -16,6 +16,8 @@ export class FormRestauranteComponent {
   bebidas: any[] = [];
   entradasSeleccionadas: any[] = []; // Arreglo para almacenar las entradas seleccionadas
 
+  @Input() mostrarBotonTotal: boolean = true
+
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
@@ -43,7 +45,7 @@ export class FormRestauranteComponent {
     }
     this.actualizarTotal.emit(this.sumarPrecios());
   }
-  
+
   decrementar(index: number) {
     if (index < this.platos.length) {
       if (this.platos[index].cantidad > 0) {
@@ -62,7 +64,7 @@ export class FormRestauranteComponent {
     let total = 0;
     total += this.platos.reduce((acc, plato) => acc + (plato.price * plato.cantidad), 0);
     total += this.bebidas.reduce((acc, bebida) => acc + (bebida.price * bebida.cantidad), 0);
-    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionada  
+    total += this.entradasSeleccionadas.reduce((acc, entrada) => acc + (entrada.price * entrada.cantidad), 0); // Sumar también las entradas seleccionada
 
     this.saldoRestaurante.emit(total)
     return total;
@@ -77,7 +79,7 @@ export class FormRestauranteComponent {
     const horaLlegada = this.sharedDataService.getHora();
     const emailCliente = this.sharedDataService.getEmail();
     // Guardar la selección con los productos seleccionados recibidos como argumento
-    
+
     const cliente = [{
       cedula: cedulaReserva,
       nombre: nombreReserva,
@@ -148,7 +150,7 @@ export class FormRestauranteComponent {
     // Guardar la selección
     this.guardarSeleccion(productosSeleccionados, );
   }
-  
+
   onPagar2(){
     const productosRestaurante = this.obtenerProductosSeleccionados();
     const productosSeleccionados = [...productosRestaurante ];

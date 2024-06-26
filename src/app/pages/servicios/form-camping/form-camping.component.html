@@ -6,7 +6,7 @@
     </div>
     </div>
         <div *ngIf="menuVisible">
-          <app-form-restaurante (actualizarTotal)="sumar($event)" ></app-form-restaurante>
+          <app-form-restaurante (actualizarTotal)="sumar($event)" [mostrarBotonTotal]="false" ></app-form-restaurante>
         </div>
 
         <h3 class="h3">Capacidad del Camping</h3>
@@ -24,11 +24,9 @@
 
         </div>
     </div>
-    <h5>costo</h5>
-    {{totalPagar}}
 
-
-<!-- Modal -->
+<div class="fondo">
+  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -39,11 +37,13 @@
         <app-contenido-modal [totalPagar]="totalPagar"></app-contenido-modal>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Pagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success"><i class="fas fa-credit-card mr-2"></i> Pagar</button>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 
 
