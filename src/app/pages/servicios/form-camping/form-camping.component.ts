@@ -1,5 +1,6 @@
 import { Component, Input, viewChild } from '@angular/core';
 import { DataCampingService } from './services/data-camping.service';
+import Swal from 'sweetalert2';
 import { CompartirSaldoService } from './services/compartirSaldo.service';
 
 @Component({
@@ -72,26 +73,56 @@ export class FormCampingComponent {
   }
 
 
-  enviarPedidoCamping(){
-
+  enviarPedidoCamping() {
     const pedidocampingPareja = {
       productos: this.data[0],
       total: this.totalPagar
-    }
+    };
 
-    const pedidocampingFamiliar = [{
+    const pedidocampingFamiliar = {
       productos: this.data[1],
       total: this.totalPagar
-    }]
+    };
 
-    if(this.opcionSeleccionada === 'Camping para Parejas'){
-      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingPareja).subscribe(data =>{}
-      )
-
-    }
-    else if(this.opcionSeleccionada === 'Camping Familiar'){
-      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingFamiliar).subscribe(data => {})
+    if (this.opcionSeleccionada === 'Camping para Parejas') {
+      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingPareja).subscribe(data => {
+        if (data !== null) {
+          Swal.fire({
+            title: 'Reserva Exitosa',
+            text: 'Su reserva ha sido realizada con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Cerrar'
+          });
+        }
+      });
+    } else if (this.opcionSeleccionada === 'Camping Familiar') {
+      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingFamiliar).subscribe(data => {
+        if (data !== null) {
+          Swal.fire({
+            title: 'Reserva Exitosa',
+            text: 'Su reserva ha sido realizada con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Cerrar'
+          });
+        }
+      });
     }
   }
-}
 
+}
