@@ -2,6 +2,7 @@ import { Component, Input, viewChild } from '@angular/core';
 import { DataCampingService } from './services/data-camping.service';
 import Swal from 'sweetalert2';
 import { CompartirSaldoService } from './services/compartirSaldo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-camping',
@@ -27,8 +28,8 @@ export class FormCampingComponent {
 
   constructor(
     private datosDelServicio:DataCampingService,
-    private enviarPedidoCampingService: DataCampingService
-
+    private enviarPedidoCampingService: DataCampingService,
+    private router: Router
   ){}
 
   ngOnInit(){
@@ -76,12 +77,14 @@ export class FormCampingComponent {
   enviarPedidoCamping() {
     const pedidocampingPareja = {
       productos: this.data[0],
-      total: this.totalPagar
+      total: this.totalPagar,
+      cedula: localStorage.getItem('cedula')
     };
 
     const pedidocampingFamiliar = {
       productos: this.data[1],
-      total: this.totalPagar
+      total: this.totalPagar,
+      cedula: localStorage.getItem('cedula')
     };
 
     if (this.opcionSeleccionada === 'Camping para Parejas') {
@@ -93,6 +96,7 @@ export class FormCampingComponent {
             icon: 'success',
             confirmButtonText: 'Aceptar'
           });
+          this.router.navigate(['/servicios']);
         } else {
           Swal.fire({
             icon: 'error',
