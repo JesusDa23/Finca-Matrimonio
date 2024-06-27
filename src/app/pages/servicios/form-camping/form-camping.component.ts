@@ -3,6 +3,7 @@ import { DataCampingService } from './services/data-camping.service';
 import Swal from 'sweetalert2';
 import { CompartirSaldoService } from './services/compartirSaldo.service';
 import { Router } from '@angular/router';
+import { CompartiCedulaService } from '../Services/compartirCedula.service';
 
 @Component({
   selector: 'app-form-camping',
@@ -29,7 +30,8 @@ export class FormCampingComponent {
   constructor(
     private datosDelServicio:DataCampingService,
     private enviarPedidoCampingService: DataCampingService,
-    private router: Router
+    private router: Router,
+    private compartirProductosRestaurante: CompartiCedulaService
   ){}
 
   ngOnInit(){
@@ -39,6 +41,8 @@ export class FormCampingComponent {
       this.campingParejas = this.datosCamping.data[0].precio
       this.campingFamiliar = this.datosCamping.data[1].precio
 
+
+      console.log(this.compartirProductosRestaurante.getProductRestaurante())
 
     })
 
@@ -76,7 +80,12 @@ export class FormCampingComponent {
 
   enviarPedidoCamping() {
     const pedidocampingPareja = {
-      productos: this.data[0],
+      productos:[
+        {
+        dataCamping: this.data[0],
+        dataRestaurante: this.compartirProductosRestaurante.getProductRestaurante()
+        }
+      ] ,
       total: this.totalPagar,
       cedula: localStorage.getItem('cedula')
     };

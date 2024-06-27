@@ -4,7 +4,6 @@ import { ObtenerMenuService } from '../Services/obtener-menu.service';
 import Swal from 'sweetalert2';
 import { EntradasService } from './entradas/services/entradas.service';
 import { EntradasComponent } from './entradas/entradas.component';
-import { CompartiCedulaService } from '../Services/compartirCedula.service';
 import { Router } from '@angular/router';
 import { EventosService } from '../form-eventos/services/eventos.service';
 
@@ -18,6 +17,7 @@ export class FormRestauranteComponent {
   platos: any[] = [];
   bebidas: any[] = [];
   entradasSeleccionadas: any[] = [];
+  productosRestaurante2: any;
   // Arreglo para almacenar las entradas seleccionadas
   @Input() mostrarBotonTotal: boolean = true
   @Output() saldoRestaurante = new EventEmitter<any>();
@@ -25,11 +25,15 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
+
+
+  @Output() productosRestaurante = new EventEmitter<any>();
+
   constructor(
     private obtenerMenuService: ObtenerMenuService,
     private router: Router,
     private eventoService: EventosService,
-    private entradasService: EntradasService
+    private entradasService: EntradasService,
   ) {}
 
   ngOnInit() {
@@ -38,6 +42,7 @@ export class FormRestauranteComponent {
       this.platos = this.menu.filter(item => item.type === 'plato');
       this.bebidas = this.menu.filter(item => item.type === 'bebida');
     });
+
   }
 
   incrementar(index: number) {
@@ -48,6 +53,7 @@ export class FormRestauranteComponent {
       this.bebidas[bebidaIndex].cantidad++;
     }
     this.actualizarTotal.emit(this.sumarPrecios());
+
   }
 
   decrementar(index: number) {
@@ -128,6 +134,9 @@ export class FormRestauranteComponent {
   onPagar() {
     // Obtener productos seleccionados del restaurante
     const productosRestaurante = this.obtenerProductosSeleccionados();
+
+
+
     // Obtener productos seleccionados de las entradas
     const productosEntradas = this.entradasComponent.obtenerProductosSeleccionados();
     // Combinar ambos arreglos de productos
@@ -139,6 +148,7 @@ export class FormRestauranteComponent {
 
   onPagar2(){
     const productosRestaurante = this.obtenerProductosSeleccionados();
+
     const productosSeleccionados = [...productosRestaurante ];
 
     if (productosSeleccionados.length === 0) {
@@ -151,6 +161,7 @@ export class FormRestauranteComponent {
       });
       return;
     }
+
 
     this.guardarSeleccion(productosSeleccionados);
 
