@@ -21,10 +21,12 @@ export class FormCampingComponent {
 
   campingParejas: number = 0
   campingFamiliar: number = 0
+  opcionSeleccionada: any;
+
 
   constructor(
     private datosDelServicio:DataCampingService,
-    private compartirSaldo: CompartirSaldoService
+    private enviarPedidoCampingService: DataCampingService
 
   ){}
 
@@ -32,12 +34,12 @@ export class FormCampingComponent {
      this.datosDelServicio.obtenerDatos().subscribe(data => {
       this.datosCamping = data
       this.data = this.datosCamping.data
-
       this.campingParejas = this.datosCamping.data[0].precio
       this.campingFamiliar = this.datosCamping.data[1].precio
 
 
     })
+
   }
 
 
@@ -57,18 +59,39 @@ export class FormCampingComponent {
   }
 
 
-  mostrarPrecioPareja(i:any){
-    if (i === 0){
-      this.totalPagar = this.total + this.campingParejas
-    }
-    else {
-      this.totalPagar = this.total + this.campingFamiliar
+
+
+  mostrarPrecioPareja(i: any) {
+    if (i === 0) {
+      this.totalPagar = this.total + this.campingParejas;
+      this.opcionSeleccionada = 'Camping para Parejas'; // Guardar opción seleccionada
+    } else {
+      this.totalPagar = this.total + this.campingFamiliar;
+      this.opcionSeleccionada = 'Camping Familiar'; // Guardar opción seleccionada
     }
   }
+
 
   enviarPedidoCamping(){
 
+    const pedidocampingPareja = {
+      productos: this.data[0],
+      total: this.totalPagar
+    }
+
+    const pedidocampingFamiliar = [{
+      productos: this.data[1],
+      total: this.totalPagar
+    }]
+
+    if(this.opcionSeleccionada === 'Camping para Parejas'){
+      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingPareja).subscribe(data =>{}
+      )
+
+    }
+    else if(this.opcionSeleccionada === 'Camping Familiar'){
+      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingFamiliar).subscribe(data => {})
+    }
   }
 }
-
 
