@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+      import { Injectable } from '@angular/core';
 
 
 @Injectable({
@@ -6,20 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class CompartiCedulaService {
 
-  private cedula: string = '';
+
+  productosRestaurante: []= [];
 
 
-  setCedula(cedula: string,) {
-    this.cedula = cedula;
+  setProductRestaurante(productosRestaurante:any,) {
+    this.productosRestaurante = productosRestaurante;
   }
 
 
-
-  getCedula(): string {
-    return this.cedula
+  getProductRestaurante(): any{
+    return this.productosRestaurante
   }
-
-
-
 
 }

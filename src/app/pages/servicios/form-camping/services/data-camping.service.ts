@@ -11,6 +11,6 @@ export class DataCampingService {
   }
 
   envioPedidoCamping(dataCamping:any){
-    this.http.post('http://localhost:4000/api/pedidocamping',dataCamping)
+    return this.http.post('http://localhost:4000/api/pedidocamping', dataCamping)
   }
 }
