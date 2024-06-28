@@ -21,22 +21,11 @@ export class ConsultaComponent {
   
   enviarConsulta(){
 
-  localStorage.setItem('cedula', this.numeroIdentificacion.value.cedula )
+  const cedula = this.numeroIdentificacion.value.cedula;
+  localStorage.setItem('cedula', cedula )
 
-  this.consultaService.obtenerDatosCliente(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataCliente => {
-
-    if (dataCliente.data !== null){
-      this.consultaService.setCliente(dataCliente.data)
-      this.consultaService.obtenerDatosReserva(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataReserva => {
-        this.consultaService.setReserva(dataReserva.data)
-      })
-    
-      this.consultaService.obtenerDatosPedidos(this.numeroIdentificacion.get('cedula')?.value).subscribe(dataPedido => {
-        this.consultaService.setPedido(dataPedido.data)
-        this.router.navigate(['/mostrar'])
-      })
-    
-    }else {
+  this.consultaService.obtenerDatosCliente(cedula).subscribe(data => {
+    if (data.data === null ){
       Swal.fire({
         icon: 'info',
         title: 'No tiene reservas disponibles',
@@ -45,13 +34,17 @@ export class ConsultaComponent {
         cancelButtonText: 'Cancelar',
         confirmButtonText: 'Aceptar',
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',})
+        cancelButtonColor: '#d33'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/servicios']);
+        }
+      });
+    } else {
+      this.router.navigate(['/mostrar']);
     }
   })
-
-
-
-
+  
 
 }
 

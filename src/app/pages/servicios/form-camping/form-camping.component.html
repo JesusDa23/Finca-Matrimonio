@@ -6,7 +6,7 @@
     </div>
     </div>
         <div *ngIf="menuVisible">
-          <app-form-restaurante (actualizarTotal)="sumar($event)" [mostrarBotonTotal]="false" ></app-form-restaurante>
+          <app-form-restaurante (actualizarTotal)="sumar($event)" [mostrarBotonTotal]="false" (productosRestaurante)="recibirProductosRestaurante($event)"></app-form-restaurante>
         </div>
 
         <h3 class="h3">Capacidad del Camping</h3>

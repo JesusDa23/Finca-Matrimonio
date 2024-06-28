@@ -11,7 +11,6 @@ export class CompartirSaldoService {
     }
 
     getSaldo():any{
-        console.log(this.saldoTotal)
         return this.saldoTotal
     }
 }

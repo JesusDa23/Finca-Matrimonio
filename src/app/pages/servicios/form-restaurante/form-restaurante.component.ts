@@ -17,10 +17,8 @@ export class FormRestauranteComponent {
   platos: any[] = [];
   bebidas: any[] = [];
   entradasSeleccionadas: any[] = [];
-<<<<<<< HEAD
-=======
   productosRestaurante2: any;
->>>>>>> be6b82cfb5ea0d36a013600cbff8aea9fba1682a
+
   // Arreglo para almacenar las entradas seleccionadas
   @Input() mostrarBotonTotal: boolean = true
   @Output() saldoRestaurante = new EventEmitter<any>();
@@ -28,22 +26,16 @@ export class FormRestauranteComponent {
   @Output() actualizarTotal = new EventEmitter<number>(); // Evento para actualizar el total
   @ViewChild(EntradasComponent) entradasComponent!: EntradasComponent;
 
-<<<<<<< HEAD
-=======
+
+  @Output() productosRestaurante = new EventEmitter<any[]>();
 
 
-  @Output() productosRestaurante = new EventEmitter<any>();
-
->>>>>>> be6b82cfb5ea0d36a013600cbff8aea9fba1682a
   constructor(
     private obtenerMenuService: ObtenerMenuService,
     private router: Router,
     private eventoService: EventosService,
-<<<<<<< HEAD
     private entradasService: EntradasService
-=======
-    private entradasService: EntradasService,
->>>>>>> be6b82cfb5ea0d36a013600cbff8aea9fba1682a
+
   ) {}
 
   ngOnInit() {
@@ -63,6 +55,7 @@ export class FormRestauranteComponent {
       this.bebidas[bebidaIndex].cantidad++;
     }
     this.actualizarTotal.emit(this.sumarPrecios());
+    this.emitirProductosRestaurante()
 
   }
 
@@ -78,6 +71,7 @@ export class FormRestauranteComponent {
       }
     }
     this.actualizarTotal.emit(this.sumarPrecios());
+    this.emitirProductosRestaurante()
   }
 
   sumarPrecios() {
@@ -172,14 +166,21 @@ export class FormRestauranteComponent {
       return;
     }
 
-
     this.guardarSeleccion(productosSeleccionados);
 
+  }
+
+  emitirProductosRestaurante() {
+    const productosRestaurante = this.obtenerProductosSeleccionados();
+    if (productosRestaurante.length > 0) {
+      this.productosRestaurante.emit(productosRestaurante);
+    }
   }
 
   // Método para recibir las entradas seleccionadas desde EntradasComponent
   recibirEntradasSeleccionadas(infoEntradas: any[]) {
     this.entradasSeleccionadas = infoEntradas;
     this.actualizarTotal.emit(this.sumarPrecios());
+    this.emitirProductosRestaurante();
   }
 }

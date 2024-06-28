@@ -5,13 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConsultarPedidoService {
-  
-  baseUrl = 'http://localhost:4000/api'
 
   
-  datosDelCliente: any;
-  datosDeReserva: any;
-  datosDePedido: any
+  baseUrl = 'http://localhost:4000/api'
     
   constructor(private http: HttpClient) {
    }
@@ -19,7 +15,6 @@ export class ConsultarPedidoService {
   obtenerDatosCliente(cedula:string){
     return this.http.get<any>(`${this.baseUrl}/cliente/${cedula}`)
    }
-
 
   obtenerDatosReserva(cedula:string){
     return this.http.get<any>(`${this.baseUrl}/reservas/${cedula}`)
@@ -29,37 +24,9 @@ export class ConsultarPedidoService {
     return this.http.get<any>(`${this.baseUrl}/pedidos/${cedula}`)
   }
 
-
-
-
-   setCliente(datosCliente: any){ 
-    this.datosDelCliente = datosCliente
-   }
-
-   getCliente(){
-    return this.datosDelCliente
-   }
-
-
-   setReserva(datosReserva: any){ 
-    this.datosDeReserva = datosReserva
-   }
-
-   getReserva(){
-    return this.datosDeReserva
-   }
-
-
-
-
-   setPedido(datosPedido: any){ 
-    this.datosDePedido = datosPedido
-   }
-
-   getPedido(){
-    return this.datosDePedido
-   }
-
+  obetnerDatosCamping(cedula:string){
+    return this.http.get<any>(`${this.baseUrl}/pedidocamping/${cedula}`)
+  }
 
   
 }

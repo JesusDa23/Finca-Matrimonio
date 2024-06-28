@@ -35,9 +35,10 @@ export class ButtonsConsultaComponent {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.cancelarService.cancelarReserva(this.cedula).subscribe( data => console.log(data));
-        this.cancelarService.cancelarrPedido(this.cedula).subscribe( data => console.log(data));
-        this.cancelarService.cancelarCliente(this.cedula).subscribe( data => console.log(data));
+        this.cancelarService.cancelarReserva(this.cedula).subscribe( data => {});
+        this.cancelarService.cancelarrPedido(this.cedula).subscribe( data => {});
+        this.cancelarService.cancelarCliente(this.cedula).subscribe( data => {});
+        this.cancelarService.cancelarCamping(this.cedula).subscribe(data => {});
         localStorage.removeItem('cedula')
 
         swalWithBootstrapButtons.fire({

@@ -14,8 +14,6 @@ export class FormCampingComponent {
   total:any = 0
   totalPagar: any = 0
 
-
-
   mostrarMenuActivo: boolean = false;
   menuVisible: boolean = false;
 
@@ -25,13 +23,13 @@ export class FormCampingComponent {
   campingParejas: number = 0
   campingFamiliar: number = 0
   opcionSeleccionada: any;
+  productosRestaurante: any[] = []
 
 
   constructor(
     private datosDelServicio:DataCampingService,
     private enviarPedidoCampingService: DataCampingService,
     private router: Router,
-    private compartirProductosRestaurante: CompartiCedulaService
   ){}
 
   ngOnInit(){
@@ -41,11 +39,8 @@ export class FormCampingComponent {
       this.campingParejas = this.datosCamping.data[0].precio
       this.campingFamiliar = this.datosCamping.data[1].precio
 
-
-      console.log(this.compartirProductosRestaurante.getProductRestaurante())
-
     })
-
+      
   }
 
 
@@ -64,6 +59,10 @@ export class FormCampingComponent {
     this.total = totalRestaurante
   }
 
+  recibirProductosRestaurante(productos:any){
+    this.productosRestaurante = productos;
+  }
+
 
 
 
@@ -79,63 +78,34 @@ export class FormCampingComponent {
 
 
   enviarPedidoCamping() {
-    const pedidocampingPareja = {
-      productos:[
-        {
-        dataCamping: this.data[0],
-        dataRestaurante: this.compartirProductosRestaurante.getProductRestaurante()
-        }
-      ] ,
+    const pedidoCamping = {
+      productos: {
+        dataCamping: this.opcionSeleccionada === 'Camping para Parejas' ? this.data[0] : this.data[1],
+        dataRestaurante: this.productosRestaurante
+      },
       total: this.totalPagar,
       cedula: localStorage.getItem('cedula')
     };
 
-    const pedidocampingFamiliar = {
-      productos: this.data[1],
-      total: this.totalPagar,
-      cedula: localStorage.getItem('cedula')
-    };
-
-    if (this.opcionSeleccionada === 'Camping para Parejas') {
-      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingPareja).subscribe(data => {
-        if (data !== null) {
-          Swal.fire({
-            title: 'Reserva Exitosa',
-            text: 'Su reserva ha sido realizada con éxito.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-          });
-          this.router.navigate(['/servicios']);
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Cerrar'
-          });
-        }
-      });
-    } else if (this.opcionSeleccionada === 'Camping Familiar') {
-      this.enviarPedidoCampingService.envioPedidoCamping(pedidocampingFamiliar).subscribe(data => {
-        if (data !== null) {
-          Swal.fire({
-            title: 'Reserva Exitosa',
-            text: 'Su reserva ha sido realizada con éxito.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
-            confirmButtonColor: '#d33',
-            confirmButtonText: 'Cerrar'
-          });
-        }
-      });
-    }
+    this.enviarPedidoCampingService.envioPedidoCamping(pedidoCamping).subscribe(data => {
+      if (data !== null) {
+        Swal.fire({
+          title: 'Reserva Exitosa',
+          text: 'Su reserva ha sido realizada con éxito.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        this.router.navigate(['/servicios']);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al procesar su reserva. Por favor, inténtelo de nuevo más tarde.',
+          confirmButtonColor: '#d33',
+          confirmButtonText: 'Cerrar'
+        });
+      }
+    });
   }
 
 }

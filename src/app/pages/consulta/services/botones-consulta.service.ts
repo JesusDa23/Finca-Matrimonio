@@ -21,4 +21,8 @@ export class BotonesConsultaService {
     cancelarCliente(cedula: any): Observable<any> {
       return this.http.delete(`${this.baseUrl}/cliente/${cedula}`);
     }
+
+    cancelarCamping(cedula: any): Observable<any> {
+      return this.http.delete(`${this.baseUrl}/pedidoscamping/${cedula}`);
+    }
 }
