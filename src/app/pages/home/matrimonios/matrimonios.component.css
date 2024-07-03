@@ -1,9 +1,9 @@
 .matrimonio-container {
     display: flex;
     flex-direction: column;
-    background-color: #f7e5d2; 
+    background-color: #f7e5d2;
   }
-  
+
   h2.conatainer-titulo {
     font-size: 1.7em;
     padding: 0.4em;
@@ -13,18 +13,30 @@
     font-family: 'Reboto-Bold';
     font-weight: bold;
   }
-  
+
   .container-photos {
     display: flex;
     justify-content: center;
     padding-bottom: 1em;
     gap: 5em;;
   }
-  
+
   img.container-photo-married {
     width: 15vw;
     height: 15vw;
     border-radius: 70%;
     object-fit: cover;
   }
-  
+
+
+  @media screen and (min-width : 330px) {
+    .container-photos {
+      gap: 1rem;
+    }
+  }
+
+  @media screen and (min-width : 330px) {
+    .container-photos {
+      gap: 3rem;
+    }
+  }

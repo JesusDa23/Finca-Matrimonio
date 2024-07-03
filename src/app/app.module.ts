@@ -30,6 +30,7 @@ import { BannerComponent } from './pages/nosotros/banner/banner.component';
 import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
 import { PhotosComponent } from './pages/nosotros/photos/photos.component';
 import { ContenidoModalComponent } from './pages/servicios/form-camping/contenido-modal/contenido-modal.component';
+import { TestimoniosComponent } from './components/layout/testimonios/testimonios.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ContenidoModalComponent } from './pages/servicios/form-camping/contenid
     MostrarPedidoComponent,
     ContenidoModalComponent,
     ButtonsConsultaComponent,
-    DatosReservaComponent
+    DatosReservaComponent,
+    TestimoniosComponent
   ],
   imports: [
     BrowserModule,
