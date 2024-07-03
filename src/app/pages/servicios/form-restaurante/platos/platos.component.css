@@ -34,3 +34,18 @@ h3 {
 a.btn.btn-primary {
     margin-right: 1em;
 }
+
+
+@media ( max-width: 368px ) {
+  table.table {
+    width: 25em;
+}
+  .menuProducts{
+    width: 85px;
+    height: 75px;
+}
+
+.table td{
+  font-size: .9em;
+}
+}

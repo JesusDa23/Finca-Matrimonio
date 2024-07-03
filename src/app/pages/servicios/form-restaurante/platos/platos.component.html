@@ -18,8 +18,10 @@
       <td scope="row">{{plato.name}}</td>
       <td scope="row">{{plato.price}}</td>
       <td scope="row">
-        <a type="button" class="btn btn-success btn-sm rounded-circle m-2" (click)="incrementar(i)"> <i class="fas fa-plus"></i></a>
-        <a type="button" class="btn btn-primary btn-sm" (click)="decrementar(i)"><i class="fas fa-minus"></i></a>
+        <div class="botones">
+          <a type="button" class="btn btn-success btn-sm rounded-circle m-2" (click)="incrementar(i)"> <i class="fas fa-plus"></i></a>
+          <a type="button" class="btn btn-primary btn-sm" (click)="decrementar(i)"><i class="fas fa-minus"></i></a>
+        </div>       
       </td>
     </tr>
   </tbody>
