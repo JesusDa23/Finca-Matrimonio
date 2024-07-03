@@ -48,6 +48,10 @@ p {
     font-weight: bold;
   }
 
+  ul.menu-social {
+    padding: 0;
+}
+
   li.menu-social-item{
     gap: 4rem;
     display: flex;
@@ -103,18 +107,25 @@ p {
     flex-basis: 32%;
 }
 
-  @media ( max-width: 576px ) {
+
+
+  @media ( max-width: 725px ) {
 
     .nav {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
+      justify-content: center;
+      flex-direction: column;
       align-items: center;
       margin-right: 1em;
   }
 
-    .contacto {
-    margin-bottom: 4em;}
+  .imagen.img-matrimonio{
+    display: none;
+    margin-bottom: 3em;
+  }
+
+  .widget{
+    text-align: center;
+}
 
     ul.footer-menu {
       list-style: none;
@@ -126,6 +137,14 @@ p {
 
   }
 
+
+
+
+
+
+  
+
+
   @media ( min-width: 768px ) {
 
       .imagen{
@@ -133,6 +152,8 @@ p {
         height: 3rem;
       }
   }
+
+
   @media (min-width: 801px ) {
       .ul.footer-menu {
           align-items:end;

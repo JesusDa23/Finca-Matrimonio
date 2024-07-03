@@ -1,5 +1,5 @@
 .row.flex-md-row {
-  margin: 0;
+  margin: 1em 0em;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
@@ -58,6 +58,11 @@ i.fa-solid.fa-chevron-left {
 }
   
   @media ( width<=768px ){
+
+    .card1{
+      padding: 1.5em;
+
+  }
 
     .row.flex-md-row {
       flex-direction: column-reverse;

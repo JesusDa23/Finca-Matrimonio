@@ -21,6 +21,10 @@
    
 }
 
+.botonReserva {
+  margin-left: 1em;
+}
+
 .main-horario {
     font-family: 'Reboto-Bold';
     font-weight: bold;
@@ -41,6 +45,7 @@ button.btn.btn-primary {
     border: 3px solid #ffffff;
     background-color: transparent;
     font-family: 'Reboto-Regular';
+    margin-right: 1em;
 }
 
 .containerbuttons {
@@ -50,6 +55,18 @@ button.btn.btn-primary {
 
 
 @media (width<=576px) {
+
+  .titulo-main {
+    text-align: center;
+}
+
+.containerbuttons {
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
 
     .img-main {
       padding: 135px 0;

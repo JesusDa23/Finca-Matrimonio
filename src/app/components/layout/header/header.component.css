@@ -43,6 +43,7 @@
     /* border: 1px dotted orange; */
     top: 80px;
     left: 0;
+    text-align: center;
   }
 
   .menu-list .menu-item {
