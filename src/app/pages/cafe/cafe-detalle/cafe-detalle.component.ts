@@ -38,12 +38,8 @@ restarCantidad() {
     this.activatedRoute.params.subscribe( ( data: any ) => {
       
       const id = data.id;
-      console.log( id );
-
       this.cafeService.getCafeById( id ).subscribe( ( data: any ) => {
-        console.log( data );
-
-        this.cafe = data.data;
+      this.cafe = data.data;
       })
 
       this.cafeService.obtenerCafe().subscribe( data => {
@@ -54,15 +50,42 @@ restarCantidad() {
   }
 
   mensajePagar(){
-    Swal.fire({
-      title: "Sweet!",
-      text: "Modal with a custom image.",
-      imageUrl: "https://unsplash.it/400/200",
-      imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: "Custom image"
-    });
+    if (this.cantidad === 0) {
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: "Por Favor escoge almenos un articulo",
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Cerrar'
+      });
+    }
+    else{
+      Swal.fire({
+        title: "¡Gracias por tu compra!",
+        text: "El total de su compra es: $" + this.resultado,
+        imageUrl: this.cafe?.urlImagen,
+        imageWidth: 300,
+        imageHeight: 200,
+        imageAlt: "Custom image"
+      });
+      this.enviarPedido()
+    }
     
+  }
+  enviarPedido(){
+    const pedido = {
+      productos: [this.cafe],
+      total: this.resultado,
+      cantidad: this.cantidad,
+      cedula: 1,
+    };
+    this.cafeService.enviarPedidoCafe(pedido).subscribe(data=>{console.log(data)})
+  }
+
+  
+
+  refrescarPagina() {
+    window.location.reload();
   }
   
 }

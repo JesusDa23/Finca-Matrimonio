@@ -60,7 +60,7 @@ p.contenido-cafe {
   background-color: #a00000;
   color: white;
   border: none;
-  padding: 5%;
+  padding: 3%;
   font-size: 10px;
   cursor: pointer;
   transition: background-color 0.5s;
@@ -78,7 +78,7 @@ p.contenido-cafe {
   background-color: #007a25;
   color: white;
   border: none;
-  padding: 5%;
+  padding: 3%;
   font-size: 10px;
   cursor: pointer;
   transition: background-color 0.5s;
