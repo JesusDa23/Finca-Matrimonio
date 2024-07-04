@@ -27,9 +27,14 @@
     justify-content: center;
 }
 
+h5.card-title {
+    text-align: center;
+}
+
 .tarjetas{
     display: flex;
     justify-content: space-evenly;
+    margin: 1em 0;
 }
 
 .card-body {
