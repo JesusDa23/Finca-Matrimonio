@@ -24,14 +24,19 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { MostrarPedidoComponent } from './pages/consulta/mostrar-pedido/mostrar-pedido.component';
 import { ButtonsConsultaComponent } from './pages/consulta/buttons-consulta/buttons-consulta.component';
 import { DatosReservaComponent } from './pages/servicios/main-data/datos-reserva/datos-reserva.component';
-
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { BannerComponent } from './pages/nosotros/banner/banner.component';
 import { ParagraphComponent } from './pages/nosotros/paragraph/paragraph.component';
 import { PhotosComponent } from './pages/nosotros/photos/photos.component';
 import { ContenidoModalComponent } from './pages/servicios/form-camping/contenido-modal/contenido-modal.component';
 import { TestimoniosComponent } from './components/layout/testimonios/testimonios.component';
-
+import { MainCafeComponent } from './pages/cafe/main-cafe/main-cafe.component';
+import { EncabezadoComponent } from './pages/cafe/encabezado/encabezado.component';
+import { FondoComponent } from './pages/cafe/fondo/fondo.component';
+import { CarrucelCafeComponent } from './pages/cafe/carrucel-cafe/carrucel-cafe.component';
+import { CafeComponent } from './pages/cafe/cafe.component';
+import { CafeDetalleComponent } from './pages/cafe/cafe-detalle/cafe-detalle.component';
+import { PresentacionComponent } from './pages/cafe/presentacion/presentacion.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,14 @@ import { TestimoniosComponent } from './components/layout/testimonios/testimonio
     ContenidoModalComponent,
     ButtonsConsultaComponent,
     DatosReservaComponent,
-    TestimoniosComponent
+    TestimoniosComponent,
+    MainCafeComponent,
+    EncabezadoComponent,
+    FondoComponent,
+    CarrucelCafeComponent,
+    CafeComponent,
+    CafeDetalleComponent,
+    PresentacionComponent
   ],
   imports: [
     BrowserModule,

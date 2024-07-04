@@ -39,8 +39,8 @@ h5.card-title {
 }
 
 p.card-text {
-    height: 7rem;
     font-family: 'Reboto-Regular';
+    height: auto;
 }
 
 a.btn.btn-primary {
