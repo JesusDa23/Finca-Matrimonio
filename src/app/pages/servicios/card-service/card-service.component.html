@@ -1,6 +1,5 @@
-<div class="cardService">
-  @for (service of data; track service) {
-  <div class="card" style="width: 22rem">
+<div class="cardService" >
+  <div class="card" style="width: 20rem" *ngFor="let service of services; let i = index">
     <img [src]="service.img" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{service.title}}</h5>
@@ -9,8 +8,8 @@
       </p>
       <button (click)="recogerId(service.id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">{{service.btnText}}</button>
     </div>
+
   </div>
-}
 </div>
 
 

@@ -41,9 +41,7 @@
               <img [src]="service.urlImagen" class="card-img-top" [alt]="service?.nombre" />
               <div class="card-body">
                 <h5 class="card-title">{{service.nombre}}</h5>
-                <p class="card-text">
-                  {{service.precio}}
-                </p>
+                <p class="card-text">${{service.precio}}</p>
                 <button class="btn btn-primary"[routerLink]="['/cafe/detalle/', service._id]" >Seleccionar</button>
               </div>
             </div>
