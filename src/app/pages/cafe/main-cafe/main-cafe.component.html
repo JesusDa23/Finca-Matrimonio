@@ -8,13 +8,13 @@
     <div class="container">
         <div class="cardService" *ngFor="let service of cafes.data; let i = index">
             <div class="card" style="width: 22rem">
-              <img [src]="service.img" class="card-img-top" alt="..." />
+              <img [src]="service.urlImagen" class="card-img-top" [alt]="service?.nombre" />
               <div class="card-body">
                 <h5 class="card-title">{{service.nombre}}</h5>
                 <p class="card-text">
                   {{service.precio}}
                 </p>
-                <a class="btn btn-primary" (click)="navegarRutas(i)">Comprar</a>
+                <a class="btn btn-primary" [routerLink]="['/cafe/detalle/', service._id]">Comprar</a>
               </div>
             </div>
           </div>

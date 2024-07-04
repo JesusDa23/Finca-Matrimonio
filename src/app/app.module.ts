@@ -16,9 +16,7 @@ import { EncabezadoComponent } from './pages/cafe/encabezado/encabezado.componen
 import { FondoComponent } from './pages/cafe/fondo/fondo.component';
 import { CarrucelCafeComponent } from './pages/cafe/carrucel-cafe/carrucel-cafe.component';
 import { CafeComponent } from './pages/cafe/cafe.component';
-import { CafeM250Component } from './pages/cafe/cafe-m-250/cafe-m-250.component';
-import { CafeM500Component } from './pages/cafe/cafe-m-500/cafe-m-500.component';
-import { CafeT500Component } from './pages/cafe/cafe-t-500/cafe-t-500.component';
+import { CafeDetalleComponent } from './pages/cafe/cafe-detalle/cafe-detalle.component';
 import { PresentacionComponent } from './pages/cafe/presentacion/presentacion.component';
 
 @NgModule({
@@ -36,9 +34,7 @@ import { PresentacionComponent } from './pages/cafe/presentacion/presentacion.co
     FondoComponent,
     CarrucelCafeComponent,
     CafeComponent,
-    CafeM250Component,
-    CafeM500Component,
-    CafeT500Component,
+    CafeDetalleComponent,
     PresentacionComponent
   ],
   imports: [

@@ -20,19 +20,4 @@ export class MainCafeComponent {
 
     })
   }
-
-  navegarRutas(i:number){
-    if( i === 0){
-      this.router.navigate(['/cafe250'])
-    }
-    else if( i === 1){
-      this.router.navigate(['/cafe500'])
-    }
-    else if ( i === 2){
-      this.router.navigate(['/cafe501'])
-    }
-    else {
-      console.log('no hay mas cards')
-    }
-  }
 }

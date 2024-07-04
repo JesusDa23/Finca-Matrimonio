@@ -3,16 +3,18 @@
     margin-right: 7%;
     margin-left: 7%;
     margin-bottom: 4%
-  }
-  h2.title-coffe {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #8f6b3c;
-    font-size: 30px;
-    padding: 3% 3%;
 }
-  
+
+h2.title-coffe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8f6b3c;
+  font-size: 30px;
+  padding: 3% 3%;
+}
+
+
   .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     padding: 0;
   }

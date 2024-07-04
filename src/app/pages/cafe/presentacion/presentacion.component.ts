@@ -19,9 +19,7 @@ export class PresentacionComponent {
   constructor(private router: Router, private cafeService: CafeService){}
 
   ngOnInit(){
-    this.cafeService.obtenerCafe().subscribe( data => {
-      this.cafes = data
-    })
+    
   }
 
 }

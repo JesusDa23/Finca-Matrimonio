@@ -14,4 +14,8 @@ export class CafeService {
     return this.http.get(`${this.urlApi}`)
   }
 
+  getCafeById( id: any ) {
+    return this.http.get(`${this.urlApi}/${ id }`)
+  }
+
 }
