@@ -12,6 +12,8 @@ h2.title-coffe {
   color: #8f6b3c;
   font-size: 30px;
   padding: 3% 3%;
+  font-family: 'Reboto-Bold';
+  font-weight: bold;
 }
 
 
@@ -57,6 +59,11 @@ h2.title-coffe {
       font-size: 1em ;
   }
   
+
+  p.contentidoCafe {
+    font-family: 'Reboto-Regular';
+}
+
   @media (width<=576px) {
   
     .row.flex-md-row {

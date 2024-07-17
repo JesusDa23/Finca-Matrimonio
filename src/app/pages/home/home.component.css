@@ -13,7 +13,7 @@
 }
 
 .titulo-main p {
-    font-size: 3em;
+    font-size: 3.5em;
     color: #ffffff;
     font-weight: 1000;
     padding: 10px 100px;
@@ -40,13 +40,31 @@ p.horario-servicio {
     margin: 0;
 }
 
-button.btn.btn-primary {
+.boton-consulta {
     font-size: 20px;
     border: 3px solid #ffffff;
     background-color: transparent;
     font-family: 'Reboto-Regular';
     margin-right: 1em;
 }
+
+.boton-reserva{
+  font-size: 20px;
+  border: 3px solid #f7e5d2;
+  background-color: #f7e5d2;
+  font-family: "Reboto-Regular";
+  margin-right: 1em;
+  color: black;
+  cursor: pointer; /* Cambia el cursor a mano */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.boton-reserva:hover {
+  background-color: #d5cfc8; /* Color al pasar el cursor */
+  border:  3px solid #d5cfc8;
+  transform: scale(1.05); /* Aumenta el tamaño ligeramente */
+}
+
 
 .containerbuttons {
   margin-left: 100px;

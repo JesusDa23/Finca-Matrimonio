@@ -3,10 +3,12 @@ body{
     rgb(255, 255, 255),
     rgba(255, 255, 255, 0.5)),
     url(../../../../assets/imagenes/cafe-fondo.png);
+
 }
 
 .container {
     display: flex;
+    justify-content: center;
 }
 
 h2.title-coffe {
@@ -16,12 +18,15 @@ h2.title-coffe {
     color: #8f6b3c;
     font-size: 30px;
     padding: 3% 3%;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
 }
 
 p.contenido-cafe {
     margin-right: 7%;
     margin-left: 7%;
-    margin-bottom: 4%
+    margin-bottom: 4%;
+    font-family: 'Reboto-Regular';
 }
 
 .cardService {
@@ -45,11 +50,14 @@ img.card-img-top {
 h5.card-title {
     display: flex;
     justify-content: center;
+    font-family: 'Reboto-Bold';
+    font-weight: bold;
 }
 
 p.card-text {
     /* height: 7rem; */
     height: auto;
+    font-family: 'Reboto-Regular';
 }
 
 a.btn.btn-primary {

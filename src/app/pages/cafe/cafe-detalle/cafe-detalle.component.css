@@ -3,12 +3,17 @@ body{
   rgb(255, 255, 255),
   rgba(255, 255, 255, 0.5)),
   url(../../../../assets/imagenes/cafe-fondo.png);
+
 }
 img.d-block.w-100 {
   border-radius: 10%;
 }
 .quantity-controls {
   padding: 7%;
+}
+
+p.contenido-coffe {
+  font-family: 'Reboto-Regular';
 }
 
 .quantity[_ngcontent-ng-c2786683902] {
@@ -39,7 +44,8 @@ h2.title-coffe {
   align-items: center;
   color: #8f6b3c;
   font-size: 30px;
-  
+  font-family: 'Reboto-Bold';
+  font-weight: bold;
 }
 
 p.contenido-cafe {
@@ -91,6 +97,11 @@ p.contenido-cafe {
   border: 1px solid #000000; 
 }
 
+.precio {
+  font-family: 'Reboto-Bold';
+  font-weight: bold;
+}
+
 .comprar-button {
   margin: 5% 10px;
   background-color: #007a25;
@@ -100,6 +111,8 @@ p.contenido-cafe {
   cursor: pointer;
   transition: background-color 0.5s;
   border: 1px solid #007a25; 
+  font-family: 'Reboto-Bold';
+  font-weight: bold;
 }
 
 .comprar-button:hover {
